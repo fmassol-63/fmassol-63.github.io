@@ -100,7 +100,7 @@ describe('renderProfile', () => {
   it('affiche le texte et les infos clés', () => {
     const html = renderProfile(cv.profile, ui);
     expect(html).toContain('id="profil"');
-    expect(html).toContain('Militaire en fin de reconversion');
+    expect(html).toContain('Ancien militaire ayant terminé ma reconversion');
     expect(html).toContain('Né le 02/12/1994');
     expect(html).toContain('Langues : Anglais – B1');
   });
