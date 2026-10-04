@@ -1,14 +1,9 @@
-// Tourbillon de particules en Canvas 2D, fixé au centre de l'écran.
+// Tourbillon HUD en Canvas 2D, fixé au centre de l'écran.
 // Il ne bouge que lorsque la page défile : la boucle d'animation s'arrête dès
 // que la rotation affichée a rejoint la rotation cible.
-import {
-  angleForScroll,
-  createParticles,
-  isSettled,
-  lerp,
-  particleCountForWidth,
-  particlePosition,
-} from './vortex-math.js';
+// Le dessin lui-même est dans vortex-hud.js.
+import { angleForScroll, isSettled, lerp } from './vortex-math.js';
+import { createHud } from './vortex-hud.js';
 
 const MAX_DPR = 2;
 const SMOOTHING = 0.12;
@@ -17,16 +12,18 @@ export function initVortex(canvas) {
   const ctx = canvas.getContext('2d');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  const renderer = createHud();
   let width = 0;
   let height = 0;
-  let particles = [];
-  let color = '';
+  const colors = { primary: '', secondary: '' };
   let rafId = null;
   let target = reducedMotion.matches ? 0 : angleForScroll(window.scrollY);
   let current = target;
 
-  function readColor() {
-    color = getComputedStyle(canvas).getPropertyValue('--vortex-color').trim() || '#00e5ff';
+  function readColors() {
+    const css = getComputedStyle(canvas);
+    colors.primary = css.getPropertyValue('--vortex-color').trim() || '#00e5ff';
+    colors.secondary = css.getPropertyValue('--accent-violet').trim() || '#8b6cff';
   }
 
   function resize() {
@@ -36,33 +33,20 @@ export function initVortex(canvas) {
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const count = particleCountForWidth(width);
-    if (count !== particles.length) particles = createParticles(count, { seed: 2026 });
   }
 
   function draw() {
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const scale = Math.max(Math.min(width, height) * 0.48, 170);
-
     ctx.clearRect(0, 0, width, height);
-
-    const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, scale * 0.45);
-    glow.addColorStop(0, color);
-    glow.addColorStop(1, 'transparent');
-    ctx.globalAlpha = 0.28;
-    ctx.fillStyle = glow;
-    ctx.fillRect(centerX - scale, centerY - scale, scale * 2, scale * 2);
-
-    ctx.fillStyle = color;
-    for (const particle of particles) {
-      const { x, y } = particlePosition(particle, current, centerX, centerY, scale);
-      ctx.globalAlpha = particle.alpha;
-      ctx.fillRect(x, y, particle.size, particle.size);
-    }
+    renderer.draw(ctx, {
+      rotation: current,
+      centerX: width / 2,
+      centerY: height / 2,
+      scale: Math.max(Math.min(width, height) * 0.48, 170),
+      width,
+      height,
+      colors,
+    });
     ctx.globalAlpha = 1;
-
     canvas.dataset.angle = current.toFixed(4);
   }
 
@@ -124,7 +108,7 @@ export function initVortex(canvas) {
   document.addEventListener('visibilitychange', onVisibilityChange);
   reducedMotion.addEventListener('change', onReducedMotionChange);
 
-  readColor();
+  readColors();
   resize();
   draw();
   setAnimating(false);
@@ -132,7 +116,7 @@ export function initVortex(canvas) {
   return {
     /** À appeler après un changement de thème pour reprendre la couleur. */
     refreshColor() {
-      readColor();
+      readColors();
       draw();
     },
     destroy() {

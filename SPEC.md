@@ -13,7 +13,7 @@
 ## Objectif
 
 Un site vitrine d'une seule page qui présente le profil d'un **administrateur système** à des recruteurs et des clients.
-Au centre de l'écran, un **tourbillon de particules** reste fixe et **tourne quand on fait défiler la page** ; les sections du CV défilent autour de lui.
+Au centre de l'écran, un **tourbillon façon HUD de supervision** reste fixe et **tourne quand on fait défiler la page** ; les sections du CV défilent autour de lui.
 
 **Utilisateurs cibles :** recruteurs, responsables techniques, clients potentiels (freelance / missions).
 **Ce qui compte pour eux :** voir en moins de 30 secondes qui tu es, ce que tu sais faire et ce que tu as déjà fait, puis te contacter ou télécharger ton CV.
@@ -65,11 +65,11 @@ Objectif : rendre le site moins neutre **sans inventer de faits**. Les textes aj
 
 ### Comportement du tourbillon
 
-- Rendu en **Canvas 2D** : spirale de particules (type galaxie / vortex), positionnée en `position: fixed` au centre de l'écran, derrière le contenu.
+- Rendu en **Canvas 2D** : anneaux concentriques façon HUD de supervision (arcs, graduations, points de mesure, étiquettes SRV / NET / SEC / BKP / DNS / VPN, réticule central), en `position: fixed` au centre de l'écran, derrière le contenu. Les anneaux tournent en sens alternés, à des vitesses différentes. *(Choisi le 2026-10-04 parmi 3 propositions — réseau, code, HUD — en remplacement des particules, jugées désagréables.)*
 - **Angle de rotation = fonction de la position de scroll** (`window.scrollY`), avec un léger lissage (interpolation) pour éviter les à-coups. Descendre fait tourner dans un sens, remonter dans l'autre.
 - **Immobile tant qu'on ne défile pas** : aucune rotation au repos. Une fois le lissage terminé, la boucle d'animation s'arrête (pas de calcul inutile) et redémarre au prochain scroll.
 - **Couleur dominante : cyan « tech »** (ex. `#00e5ff` en sombre, cyan plus foncé en clair pour le contraste), tirée des variables CSS du thème → s'adapte au mode clair/sombre.
-- Nombre de particules adapté à la taille de l'écran (moins sur mobile).
+- Dessin léger (7 anneaux), identique sur mobile et desktop.
 - Rendu via `requestAnimationFrame`, **mis en pause** quand l'onglet est caché.
 - `prefers-reduced-motion: reduce` → tourbillon dessiné une fois, immobile.
 - Redimensionnement géré (canvas net sur écrans haute densité via `devicePixelRatio`).
@@ -115,7 +115,8 @@ src/
     ui.json              → Libellés de l'interface (FR/EN : titres de sections, boutons)
   lib/
     vortex.js            → Tourbillon Canvas (création, rendu, liaison au scroll)
-    vortex-math.js       → Fonctions pures : position des particules, angle selon scroll
+    vortex-math.js       → Fonctions pures : angle selon scroll, lissage, aléatoire déterministe
+    vortex-hud.js        → Dessin des anneaux HUD
     i18n.js              → Choix et bascule de langue
     theme.js             → Choix et bascule clair/sombre
     render.js            → Génère le HTML des sections à partir du JSON
@@ -221,7 +222,7 @@ export function lerp(current, target, factor = 0.1) {
 ## Stratégie de test
 
 - **Unitaires (Vitest)** :
-  - `vortex-math` : angle proportionnel au scroll, sens inversé à la remontée, lissage converge, nombre de particules selon largeur d'écran.
+  - `vortex-math` : angle proportionnel au scroll, sens inversé à la remontée, lissage converge, aléatoire reproductible ; `vortex-hud` : dessin identique pour une même rotation, anneaux qui tournent quand la rotation change.
   - `i18n` : langue par défaut selon `navigator.language`, choix enregistré prioritaire, repli sur FR.
   - `theme` : thème par défaut selon `prefers-color-scheme`, choix enregistré prioritaire.
   - `render` : chaque section est générée à partir du JSON ; le texte est échappé ; les champs optionnels manquants ne cassent pas le rendu.
@@ -261,7 +262,7 @@ export function lerp(current, target, factor = 0.1) {
 - [x] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
 - [x] La photo extraite du CV s'affiche dans le hero.
 - [x] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
-- [ ] Animation fluide : pas de saccade visible sur un ordinateur portable récent ; reste utilisable sur mobile milieu de gamme. *(à confirmer par Florian sur ses appareils : non mesurable automatiquement)*
+- [ ] Animation fluide : pas de saccade visible sur un ordinateur portable récent ; reste utilisable sur mobile milieu de gamme. _(à confirmer par Florian sur ses appareils : non mesurable automatiquement)_
 - [x] Avec « réduire les animations » activé, le tourbillon est immobile.
 - [x] Bascules langue et thème fonctionnelles et mémorisées.
 - [x] Le bouton PDF télécharge le CV.
