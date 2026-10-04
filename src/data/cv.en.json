@@ -1,0 +1,286 @@
+{
+  "identity": {
+    "name": "Florian MASSOL",
+    "title": "Systems and Network Administrator",
+    "photo": "/photo.webp",
+    "photoAlt": "Photo of Florian MASSOL",
+    "cv": "/cv-florian-massol.pdf",
+    "status": "Career transition complete — available immediately",
+    "tagline": "11 years installing, maintaining and securing information systems, from the French Army to the private sector."
+  },
+  "terminal": [
+    {
+      "command": "whoami",
+      "output": ["florian.massol — Systems and Network Administrator"]
+    },
+    {
+      "command": "systemctl status florian",
+      "output": [
+        "● florian.service — Systems and Network Administrator",
+        "   Active: active (running) since 2015",
+        "   Path: French Army (10 years) → 3D - Agence Informatique Tribout"
+      ]
+    },
+    {
+      "command": "ls ~/skills",
+      "output": ["virtualization/  systems/  networking/  backup/  siem/  pentest/"]
+    }
+  ],
+  "stats": [
+    { "value": 11, "suffix": " yrs", "label": "of IT experience" },
+    { "value": 500, "label": "workstations deployed" },
+    { "value": 1000, "label": "repair interventions" },
+    { "value": 3, "label": "teams led" },
+    { "value": 13, "label": "skill areas" }
+  ],
+  "profile": {
+    "text": "Former soldier with my career transition now complete, I want to put my knowledge of IT systems into practice, help my team handle crisis situations and support them.",
+    "facts": [
+      "Born on 2 December 1994",
+      "Driving licences B and C – own vehicle",
+      "Languages: English – B1"
+    ]
+  },
+  "strengths": [
+    {
+      "icon": "zap",
+      "title": "Crisis management",
+      "text": "Used to keeping systems running under pressure, in military environments and on overseas deployment (Estonia)."
+    },
+    {
+      "icon": "users",
+      "title": "Leadership and training",
+      "text": "Group leader of three teams and trainer on IT systems and the military environment."
+    },
+    {
+      "icon": "backup",
+      "title": "Business continuity",
+      "text": "Deployment and validation of disaster recovery plans, backup plans and high-availability infrastructure (HCI)."
+    },
+    {
+      "icon": "lock",
+      "title": "Security",
+      "text": "Firewalls, SIEM (Wazuh, Suricata), penetration testing and hardening of an entire infrastructure."
+    }
+  ],
+  "skills": [
+    {
+      "icon": "layers",
+      "category": "Virtualization",
+      "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"]
+    },
+    {
+      "icon": "server",
+      "category": "Systems",
+      "items": [
+        "Windows Server 2008 R2 to 2025",
+        "Linux (Red Hat, CentOS, Mageia, Debian 7 to 13, Ubuntu)"
+      ]
+    },
+    {
+      "icon": "drive",
+      "category": "NAS",
+      "items": ["Synology", "QNAP", "NetGear"]
+    },
+    {
+      "icon": "backup",
+      "category": "Backup",
+      "items": [
+        "Backup Exec",
+        "Veeam",
+        "Backup Assist",
+        "Cobian",
+        "Cove Backup",
+        "Active Backup",
+        "Hyper Backup",
+        "Hyper Vault",
+        "Windows Backup",
+        "rsync (NetGear)"
+      ]
+    },
+    {
+      "icon": "shield",
+      "category": "Antivirus",
+      "items": ["Apex One", "Deep Security", "ESET", "Sophos"]
+    },
+    {
+      "icon": "cog",
+      "category": "Services",
+      "items": [
+        "Active Directory",
+        "DNS",
+        "WSUS",
+        "DFS",
+        "SOFS",
+        "DHCP",
+        "Exchange",
+        "M365",
+        "IIS",
+        "Nginx",
+        "Apache"
+      ]
+    },
+    {
+      "icon": "network",
+      "category": "Networking",
+      "items": [
+        "Router (CISCO, Ubiquiti, Zyxel)",
+        "Firewall (Ubiquiti “EdgeRouter”, PfSense, Zyxel, StormShield)",
+        "Switch (CISCO, TPLink)",
+        "VPN",
+        "VLAN",
+        "LACP",
+        "VRRP"
+      ]
+    },
+    {
+      "icon": "activity",
+      "category": "Monitoring",
+      "items": ["Zabbix", "TacticalRMM"]
+    },
+    {
+      "icon": "eye",
+      "category": "SIEM",
+      "items": ["Wazuh", "ElasticStack", "Suricata"]
+    },
+    {
+      "icon": "bug",
+      "category": "Pentest",
+      "items": ["KaliLinux", "Parrot", "BlackArch"]
+    },
+    {
+      "icon": "box",
+      "category": "Other",
+      "items": ["Docker", "Vault", "HAproxy", "Git"]
+    },
+    {
+      "icon": "terminal",
+      "category": "Scripting",
+      "items": ["PowerShell", "Bash"]
+    },
+    {
+      "icon": "monitor",
+      "category": "Remote access",
+      "items": ["Iperius", "Quick Assist", "AnyDesk"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "3D - Agence Informatique Tribout",
+      "role": "Systems, Network and Cyber Administrator (work-study)",
+      "period": "2025 – 2026",
+      "location": "Clermont-Ferrand",
+      "duration": "1 year",
+      "tasks": [
+        "Deployed and validated a disaster recovery plan (DRP) for the company.",
+        "Installed backup solutions.",
+        "Resolved a wide range of incidents."
+      ]
+    },
+    {
+      "company": "French Army",
+      "role": "Systems Administrator",
+      "period": "2015 – 2025",
+      "location": "Clermont-Ferrand",
+      "duration": "10 years",
+      "tasks": [
+        "Installation, maintenance and upkeep of servers and client workstations.",
+        "Led three teams (group leader).",
+        "Trainer on IT systems and the military environment."
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "title": "Estonia mission",
+      "role": "Systems Administrator",
+      "period": "2023",
+      "duration": "4 months",
+      "tasks": [
+        "Server maintenance.",
+        "Migration from Windows Server 2012 to 2016.",
+        "Deployment of a backup plan.",
+        "Expansion of the IT architecture."
+      ]
+    },
+    {
+      "title": "GAO mission",
+      "role": "IT Maintenance Technician",
+      "period": "2018",
+      "duration": "4 months",
+      "highlights": [
+        { "value": "500", "label": "workstations deployed" },
+        { "value": "1000", "label": "interventions" }
+      ],
+      "tasks": [
+        "Deployment and configuration of workstations (500 units).",
+        "Network cabling.",
+        "Computer repair and troubleshooting (1,000 interventions)."
+      ]
+    }
+  ],
+  "project": {
+    "title": "Deployment of a hyperconverged infrastructure",
+    "context": "The existing infrastructure was centralised on a single site despite two interconnected sites, with no redundancy or continuity plan. Any outage meant a complete loss of service.",
+    "recommendationsTitle": "Recommendations made:",
+    "recommendations": [
+      "Deployment of a high-availability (HA) infrastructure",
+      "Deployment of a secure, redundant Active Directory",
+      "Configuration of hyperconverged storage (HCI)",
+      "Deployment of a load-balanced website",
+      "Deployment of secure VPN access with RADIUS authentication",
+      "Network supervision and monitoring (SIEM + NIDS + ZABBIX)",
+      "Hardening of the entire infrastructure",
+      "Implementation of a backup and disaster recovery strategy (DRP/BCP)"
+    ]
+  },
+  "education": [
+    {
+      "title": "Bachelor's degree in Systems, Networks and Cybersecurity Administration",
+      "period": "2025 – 2026",
+      "place": "GFS, Clermont-Ferrand",
+      "description": "Penetration testing, hyperconverged infrastructure, best practices."
+    },
+    {
+      "title": "Military business software and environment",
+      "period": "2023 – 2024",
+      "place": "Saumur, Thionville, Mailly-le-Camp, Airbus Élancourt",
+      "description": "Military software and operating systems."
+    },
+    {
+      "title": "BM1 Systems Administrator",
+      "period": "2022",
+      "place": "École des Transmissions du Numérique et du Cyber, Rennes",
+      "description": "Network and systems administrator."
+    },
+    {
+      "title": "Operational Information Systems training",
+      "period": "2015",
+      "place": "French Army, Thionville",
+      "description": "Helpdesk (user support), fibre optic technician."
+    },
+    {
+      "title": "Vocational baccalaureate in Electrical Engineering",
+      "period": "2013",
+      "place": "Lycée Maréchal Soult, Saint-Amans-Soult"
+    }
+  ],
+  "interests": ["Sport", "DIY – Woodworking", "Gardening", "Games (console, PC, board games)"],
+  "contact": {
+    "phone": "06 47 85 34 62",
+    "phoneHref": "+33647853462",
+    "email": "massolflorian@gmail.com",
+    "linkedin": {
+      "label": "linkedin.com/in/florian-massol-2243ab212",
+      "url": "https://www.linkedin.com/in/florian-massol-2243ab212"
+    },
+    "address": ["20 rue de Chavaroux Lignat", "63360 Lussat"],
+    "github": [
+      { "label": "github.com/fmassol-63", "url": "https://github.com/fmassol-63" },
+      {
+        "label": "github.com/fmassol-63/zabbix_vault",
+        "url": "https://github.com/fmassol-63/zabbix_vault"
+      }
+    ]
+  }
+}

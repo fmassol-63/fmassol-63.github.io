@@ -4,11 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Florian MASSOL — Administrateur Systèmes et Réseaux</title>
+    <meta
+      name="description"
+      content="CV de Florian MASSOL, administrateur systèmes et réseaux : 11 ans d'expérience, virtualisation, sauvegarde, réseaux, sécurité. Disponible immédiatement."
+    />
+    <meta name="theme-color" content="#070d1a" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Applique le thème avant l'affichage pour éviter un flash de la mauvaise couleur.
+      try {
+        var theme = localStorage.getItem('cv-fm:theme');
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        // Thème sombre par défaut.
+      }
+    </script>
   </head>
   <body>
     <canvas id="vortex" aria-hidden="true"></canvas>
-    <main id="content"></main>
+    <header id="header" class="header"></header>
+    <main id="content" tabindex="-1"></main>
     <footer id="footer" class="footer"></footer>
     <script type="module" src="/src/main.js"></script>
   </body>

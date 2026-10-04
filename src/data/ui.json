@@ -1,6 +1,7 @@
 {
   "fr": {
     "pageTitle": "Florian MASSOL — Administrateur Systèmes et Réseaux",
+    "metaDescription": "CV de Florian MASSOL, administrateur systèmes et réseaux : 11 ans d'expérience, virtualisation, sauvegarde, réseaux, sécurité. Disponible immédiatement.",
     "sections": {
       "profile": "Profil",
       "strengths": "Ce que j’apporte",
@@ -12,6 +13,22 @@
       "interests": "Centres d’intérêt",
       "contact": "Contact"
     },
+    "nav": {
+      "profil": "Profil",
+      "competences": "Compétences",
+      "parcours": "Parcours",
+      "missions": "Missions",
+      "formation": "Formation",
+      "contact": "Contact"
+    },
+    "navLabel": "Navigation principale",
+    "home": "Retour à l’accueil",
+    "menu": "Menu",
+    "toLight": "Activer le mode clair",
+    "toDark": "Activer le mode sombre",
+    "switchLang": "Switch to English",
+    "otherLangShort": "EN",
+    "skipLink": "Aller au contenu",
     "statsLabel": "Chiffres clés",
     "terminalTitle": "florian@sysadmin: ~",
     "downloadCv": "Télécharger le CV",
@@ -22,5 +39,46 @@
     "address": "Adresse",
     "github": "GitHub",
     "rights": "Tous droits réservés."
+  },
+  "en": {
+    "pageTitle": "Florian MASSOL — Systems and Network Administrator",
+    "metaDescription": "Résumé of Florian MASSOL, systems and network administrator: 11 years of experience in virtualization, backup, networking and security. Available immediately.",
+    "sections": {
+      "profile": "Profile",
+      "strengths": "What I bring",
+      "skills": "Skills",
+      "experience": "Professional experience",
+      "missions": "Missions",
+      "project": "Project",
+      "education": "Education",
+      "interests": "Interests",
+      "contact": "Contact"
+    },
+    "nav": {
+      "profil": "Profile",
+      "competences": "Skills",
+      "parcours": "Experience",
+      "missions": "Missions",
+      "formation": "Education",
+      "contact": "Contact"
+    },
+    "navLabel": "Main navigation",
+    "home": "Back to top",
+    "menu": "Menu",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode",
+    "switchLang": "Passer en français",
+    "otherLangShort": "FR",
+    "skipLink": "Skip to content",
+    "statsLabel": "Key figures",
+    "terminalTitle": "florian@sysadmin: ~",
+    "downloadCv": "Download CV (French)",
+    "contactMe": "Contact me",
+    "phone": "Phone",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "address": "Address",
+    "github": "GitHub",
+    "rights": "All rights reserved."
   }
 }

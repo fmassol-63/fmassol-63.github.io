@@ -27,6 +27,13 @@ function animateCount(element) {
   requestAnimationFrame(tick);
 }
 
+/** Affiche tout de suite les éléments (après un nouveau rendu, par exemple un changement de langue). */
+export function revealAll(root = document) {
+  root
+    .querySelectorAll('.section, .stat')
+    .forEach((element) => element.classList.add('is-visible'));
+}
+
 export function initMotion(root = document) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion || !('IntersectionObserver' in window)) return;

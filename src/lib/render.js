@@ -250,6 +250,34 @@ export function renderContact(contact, identity, ui) {
   );
 }
 
+export function renderHeader(identity, ui, { theme = 'dark', lang = 'fr' } = {}) {
+  const links = list(
+    Object.entries(ui.nav),
+    ([id, label]) => `<li><a class="header__link" href="#${e(id)}">${e(label)}</a></li>`,
+  );
+  const otherLang = lang === 'fr' ? 'en' : 'fr';
+  const themeLabel = theme === 'dark' ? ui.toLight : ui.toDark;
+  return `
+    <a class="skip-link" href="#content">${e(ui.skipLink)}</a>
+    <div class="header__inner">
+      <a class="header__brand" href="#accueil" aria-label="${e(ui.home)}">
+        <span class="header__logo" aria-hidden="true">FM</span>
+        <span class="header__brand-name">${e(identity.name)}</span>
+      </a>
+      <nav id="site-nav" class="header__nav" aria-label="${e(ui.navLabel)}">
+        <ul class="header__links">${links}</ul>
+      </nav>
+      <div class="header__actions">
+        <button type="button" class="header__button" data-action="lang"
+          aria-label="${e(ui.switchLang)}" lang="${otherLang}">${icon('globe', 18)}<span>${e(ui.otherLangShort)}</span></button>
+        <button type="button" class="header__button" data-action="theme"
+          aria-label="${e(themeLabel)}">${icon(theme === 'dark' ? 'sun' : 'moon', 18)}</button>
+        <button type="button" class="header__button header__menu" data-action="menu"
+          aria-label="${e(ui.menu)}" aria-expanded="false" aria-controls="site-nav">${icon('menu', 20)}</button>
+      </div>
+    </div>`;
+}
+
 export function renderFooter(identity, ui, year = new Date().getFullYear()) {
   return `<p>© ${e(year)} ${e(identity.name)}. ${e(ui.rights)}</p>`;
 }

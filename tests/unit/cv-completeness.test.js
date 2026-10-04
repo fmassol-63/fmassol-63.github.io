@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import cv from '../../src/data/cv.fr.json';
+import cvFr from '../../src/data/cv.fr.json';
+import cvEn from '../../src/data/cv.en.json';
 import uiAll from '../../src/data/ui.json';
 import { escapeHtml, renderFooter, renderPage } from '../../src/lib/render.js';
 
@@ -19,10 +20,13 @@ function collectStrings(value, path = 'cv') {
   return [];
 }
 
-describe('complétude du CV', () => {
-  const html = renderPage(cv, uiAll.fr) + renderFooter(cv.identity, uiAll.fr, 2026);
+describe.each([
+  ['fr', cvFr],
+  ['en', cvEn],
+])('complétude du CV (%s)', (lang, cv) => {
+  const html = renderPage(cv, uiAll[lang]) + renderFooter(cv.identity, uiAll[lang], 2026);
 
-  it('affiche chaque information de cv.fr.json', () => {
+  it('affiche chaque information du JSON', () => {
     const missing = collectStrings(cv)
       .filter(([, text]) => !html.includes(escapeHtml(text)))
       .map(([path]) => path);

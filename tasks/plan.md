@@ -71,9 +71,9 @@ Parallélisables après T2 : T3, T4 et T6 sont indépendants. T9, T10 et T11 son
 
 ### Phase 4 : Extras
 
-- [ ] T9 : Mode clair / sombre
-- [ ] T10 : Version anglaise
-- [ ] T11 : En-tête fixe, navigation, responsive
+- [x] T9 : Mode clair / sombre
+- [x] T10 : Version anglaise
+- [x] T11 : En-tête fixe, navigation, responsive
 
 ### Checkpoint C : fonctionnalités complètes
 
