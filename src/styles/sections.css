@@ -1,0 +1,391 @@
+/* Contenu des sections : chiffres clés, atouts, profil, compétences, frises, missions, projet, contact. */
+
+/* ---------- Chiffres clés ---------- */
+
+/* Le bandeau n'est pas une carte : seules ses tuiles (.stat) apparaissent au scroll. */
+.stats {
+  width: 100%;
+  max-width: 980px;
+  justify-self: center;
+}
+
+.stats__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.stat__value {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__suffix {
+  font-size: 0.55em;
+}
+
+.stat__label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- Ce que j'apporte ---------- */
+
+.strengths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strength {
+  padding: 22px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--badge-bg);
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.strength:hover {
+  transform: translateY(-4px);
+  border-color: var(--badge-border);
+  box-shadow: 0 12px 30px rgb(0 229 255 / 0.12);
+}
+
+.strength__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: rgb(139 108 255 / 0.15);
+  color: var(--accent);
+}
+
+.strength__title {
+  margin-bottom: 6px;
+}
+
+.strength__text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+/* ---------- Profil ---------- */
+
+.profile__text {
+  margin: 0 0 20px;
+  font-size: 1.1rem;
+}
+
+.facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts__item {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+}
+
+.facts__item::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+/* ---------- Compétences ---------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 24px 32px;
+}
+
+.skills__group {
+  padding: 18px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.02);
+  transition: border-color 0.25s;
+}
+
+.skills__group:hover {
+  border-color: var(--badge-border);
+}
+
+.skills__category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.skills__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgb(139 108 255 / 0.15);
+  color: var(--accent);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  padding: 4px 12px;
+  border: 1px solid var(--badge-border);
+  border-radius: 1em;
+  background: var(--badge-bg);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.badge:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 14px rgb(0 229 255 / 0.25);
+}
+
+.badges--large .badge {
+  padding: 8px 16px;
+  font-size: 1rem;
+}
+
+/* ---------- Frise chronologique ---------- */
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline__item {
+  position: relative;
+  padding: 0 0 28px 28px;
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(var(--accent), var(--accent-violet)) 1;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.timeline__role {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.timeline__meta {
+  margin: 4px 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.timeline__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+.tasks {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tasks li,
+.checklist li {
+  margin-bottom: 4px;
+}
+
+.tasks li::marker {
+  color: var(--accent);
+}
+
+/* ---------- Missions ---------- */
+
+.missions {
+  display: grid;
+  gap: 20px;
+}
+
+.mission {
+  padding: 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--badge-bg);
+}
+
+.mission__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 12px 0 16px;
+}
+
+.mission__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.mission__stat-value {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mission__stat-label {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Projet ---------- */
+
+.project__title {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.project__subtitle {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 4px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  display: grid;
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  overflow-wrap: anywhere;
+}
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgb(139 108 255 / 0.15);
+  color: var(--accent);
+}
+
+.contact__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+address {
+  font-style: normal;
+}
