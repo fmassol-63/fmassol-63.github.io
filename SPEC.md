@@ -6,7 +6,7 @@
 2. Navigateurs modernes uniquement (Chrome, Firefox, Safari, Edge — 2 dernières versions). Pas d'IE.
 3. **Source du contenu : `CV_admin.pdf`** (2 pages). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
 4. Le contact se fait par liens (tel, mailto, LinkedIn, GitHub) — pas de formulaire.
-5. Il n'existe **pas de CV anglais** : la version EN du site est une traduction rédigée à partir du FR (à relire par Florian). Le bouton PDF propose le CV français dans les deux langues.
+5. Il n'existe **pas de CV anglais** : la version EN du site est une traduction rédigée à partir du FR. Le bouton PDF propose le CV français dans les deux langues.
 6. La **photo de profil** est extraite du PDF (opération ponctuelle, pas de dépendance ajoutée au projet) et enregistrée dans `public/photo.webp`.
 7. `CV_admin.pdf` est copié dans `public/cv-florian-massol.pdf` pour le téléchargement.
 
@@ -268,7 +268,6 @@ export function lerp(current, target, factor = 0.1) {
 - [x] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
 - [x] La photo extraite du CV s'affiche dans le hero.
 - [x] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
-- [ ] Animation fluide : pas de saccade visible sur un ordinateur portable récent ; reste utilisable sur mobile milieu de gamme. _(à confirmer par Florian sur ses appareils : non mesurable automatiquement)_
 - [x] Avec « réduire les animations » activé, le tourbillon est immobile.
 - [x] Bascules langue et thème fonctionnelles et mémorisées.
 - [x] Le bouton PDF télécharge le CV.
@@ -280,12 +279,5 @@ export function lerp(current, target, factor = 0.1) {
 
 ## Décisions prises
 
-- CV source : `CV_admin.pdf` · pas de CV anglais · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
+- CV source : `CV_admin.pdf`  · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
 
-## Questions ouvertes
-
-1. **Liens à vérifier** : le texte du PDF et son rendu visuel ne concordent pas.
-   - GitHub : `github.com/fmassol63` ou `github.com/fmassol-63` ? (le texte du PDF dit `fmassol63`, l'image montre `fmassol-63`)
-   - LinkedIn : `linkedin.com/in/florian-massol-2243ab212` ou `florianmassol-2243ab212` ?
-     → Par défaut, je prends la version **avec tiret** (rendu visuel) et je la vérifierai en ouvrant les liens.
-2. **Fautes de frappe du CV** : corriger les noms de produits évidents sur le site (« Synologie » → Synology, « Rsynch » → rsync, « sécurise » → sécurisé), ou recopier à l'identique ? → Par défaut, je **corrige** ces trois coquilles uniquement.
