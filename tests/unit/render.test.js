@@ -128,7 +128,7 @@ describe('renderExperience', () => {
     const html = renderExperience(cv.experience, ui);
     expect(html.match(/class="timeline__item"/g)).toHaveLength(2);
     expect(html).toContain('3D - Agence Informatique Tribout');
-    expect(html).toContain('9 ans');
+    expect(html).toContain('10 ans');
     expect(html).toContain('Chef de trois équipes (chef de groupe).');
   });
 });
