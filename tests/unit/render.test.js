@@ -69,7 +69,15 @@ describe('renderTerminal', () => {
   it('affiche chaque commande précédée d’une invite, puis ses sorties', () => {
     const html = renderTerminal([{ command: 'whoami', output: ['root'] }], ui);
     expect(html).toMatch(/terminal__prompt[^>]*>\$ <\/span><span class="terminal__cmd">whoami</);
-    expect(html).toContain('<p class="terminal__line">root</p>');
+    expect(html).toContain('<p class="terminal__line">root<span class="terminal__cursor"');
+  });
+
+  it('place le curseur dans la dernière ligne (pas de ligne vide en plus)', () => {
+    const html = renderTerminal(cv.terminal, ui);
+    expect(html.match(/terminal__cursor/g)).toHaveLength(1);
+    expect(html).toMatch(
+      /<span class="terminal__cursor" aria-hidden="true"><\/span><\/p>\s*<\/div>/,
+    );
   });
 });
 

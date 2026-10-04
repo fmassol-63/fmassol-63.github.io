@@ -7,13 +7,22 @@ test.describe('animations', () => {
     await expect(contact).not.toHaveClass(/is-visible/);
     await contact.scrollIntoViewIfNeeded();
     await expect(contact).toHaveClass(/is-visible/);
-    await expect(contact).toHaveCSS('opacity', '1');
+    await expect(contact.locator('.card')).toHaveCSS('opacity', '1');
   });
 
   test('les compteurs finissent sur la bonne valeur', async ({ page }) => {
     await page.goto('/');
     await page.locator('#chiffres').scrollIntoViewIfNeeded();
     await expect(page.locator('[data-count="1000"]')).toHaveText('1000', { timeout: 5000 });
+  });
+
+  test('la frappe du terminal ne change pas la hauteur de la page', async ({ page }) => {
+    await page.goto('/');
+    const height = () => page.evaluate(() => document.documentElement.scrollHeight);
+    const before = await height();
+    await expect(page.locator('[data-terminal]')).toHaveClass(/is-typing|is-done/);
+    await page.waitForTimeout(1500);
+    expect(await height()).toBe(before);
   });
 
   test('le terminal finit de taper toutes les commandes', async ({ page }) => {

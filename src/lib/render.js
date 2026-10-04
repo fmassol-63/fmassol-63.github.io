@@ -40,13 +40,17 @@ export function renderTerminal(terminal, ui) {
       <p class="terminal__line terminal__line--command"><span class="terminal__prompt" aria-hidden="true">$ </span><span class="terminal__cmd">${e(entry.command)}</span></p>
       ${list(entry.output, (line) => `<p class="terminal__line">${e(line)}</p>`)}`,
   );
+  // Curseur placé dans la dernière ligne : seul après elle, il occuperait une ligne
+  // de plus, qui disparaîtrait au début de la frappe (décalage de mise en page).
+  const cursor = '<span class="terminal__cursor" aria-hidden="true"></span>';
+  const end = lines.lastIndexOf('</p>');
   return `
     <div class="terminal" data-terminal>
       <div class="terminal__bar" aria-hidden="true">
         <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
         <span class="terminal__name">${e(ui.terminalTitle)}</span>
       </div>
-      <div class="terminal__body">${lines}<span class="terminal__cursor" aria-hidden="true"></span></div>
+      <div class="terminal__body">${lines.slice(0, end)}${cursor}${lines.slice(end)}</div>
     </div>`;
 }
 
