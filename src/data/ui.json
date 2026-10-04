@@ -1,0 +1,23 @@
+{
+  "fr": {
+    "pageTitle": "Florian MASSOL — Administrateur Systèmes et Réseaux",
+    "sections": {
+      "profile": "Profil",
+      "skills": "Compétences",
+      "experience": "Parcours professionnel",
+      "missions": "Missions",
+      "project": "Projet",
+      "education": "Formation",
+      "interests": "Centres d’intérêt",
+      "contact": "Contact"
+    },
+    "downloadCv": "Télécharger le CV",
+    "contactMe": "Me contacter",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "address": "Adresse",
+    "github": "GitHub",
+    "rights": "Tous droits réservés."
+  }
+}

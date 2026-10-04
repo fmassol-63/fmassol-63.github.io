@@ -1,0 +1,225 @@
+{
+  "identity": {
+    "name": "Florian MASSOL",
+    "title": "Administrateur Systèmes et Réseaux",
+    "photo": "/photo.webp",
+    "photoAlt": "Photo de Florian MASSOL",
+    "cv": "/cv-florian-massol.pdf"
+  },
+  "profile": {
+    "text": "Militaire en fin de reconversion, je souhaite mettre en application mes connaissances sur les systèmes informatiques, aider mon équipe à gérer les situations de crise et leur fournir un soutien.",
+    "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel", "Langues : Anglais – B1"]
+  },
+  "skills": [
+    {
+      "category": "Virtualisation",
+      "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"]
+    },
+    {
+      "category": "Systèmes",
+      "items": [
+        "Windows Server 2008 R2 à 2025",
+        "Linux (Red Hat, CentOS, Mageia, Debian 7 à 13, Ubuntu)"
+      ]
+    },
+    {
+      "category": "NAS",
+      "items": ["Synology", "QNAP", "NetGear"]
+    },
+    {
+      "category": "Sauvegarde",
+      "items": [
+        "Backup Exec",
+        "Veeam",
+        "Backup Assist",
+        "Cobian",
+        "Cove Backup",
+        "Active Backup",
+        "Hyper Backup",
+        "Hyper Vault",
+        "Sauvegarde Windows",
+        "rsync (NetGear)"
+      ]
+    },
+    {
+      "category": "Antivirus",
+      "items": ["Apex One", "Deep Security", "ESET", "Sophos"]
+    },
+    {
+      "category": "Services",
+      "items": [
+        "Active Directory",
+        "DNS",
+        "WSUS",
+        "DFS",
+        "SOFS",
+        "DHCP",
+        "Exchange",
+        "M365",
+        "IIS",
+        "Nginx",
+        "Apache"
+      ]
+    },
+    {
+      "category": "Réseaux",
+      "items": [
+        "Routeur (CISCO, Ubiquiti, Zyxel)",
+        "Pare-feu (Ubiquiti « Edge Routeur », PfSense, Zyxel, StormShield)",
+        "Switch (CISCO, TPLink)",
+        "VPN",
+        "VLAN",
+        "LACP",
+        "VRRP"
+      ]
+    },
+    {
+      "category": "Supervision",
+      "items": ["Zabbix", "TacticalRMM"]
+    },
+    {
+      "category": "SIEM",
+      "items": ["Wazuh", "ElasticStack", "Suricata"]
+    },
+    {
+      "category": "Pentest",
+      "items": ["KaliLinux", "Parrot", "BlackArch"]
+    },
+    {
+      "category": "Autre",
+      "items": ["Docker", "Vault", "HAproxy", "Git"]
+    },
+    {
+      "category": "Scripting",
+      "items": ["PowerShell", "Bash"]
+    },
+    {
+      "category": "Prise en main à distance",
+      "items": ["Iperius", "Assistance Rapide", "AnyDesk"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "3D - Agence Informatique Tribout",
+      "role": "Alternant Administrateur Système, Réseau, Cyber",
+      "period": "2025 – 2026",
+      "location": "Clermont-Ferrand",
+      "duration": "1 an",
+      "tasks": [
+        "Déploiement et validation d'un PRA pour l'entreprise.",
+        "Installation de solutions de sauvegarde.",
+        "Résolution de pannes diverses."
+      ]
+    },
+    {
+      "company": "Armée de Terre",
+      "role": "Administrateur Système",
+      "period": "2015 – 2025",
+      "location": "Clermont-Ferrand",
+      "duration": "9 ans",
+      "tasks": [
+        "Installation, maintenance et entretien des serveurs et des postes clients.",
+        "Chef de trois équipes (chef de groupe).",
+        "Formateur sur les systèmes informatiques et l’environnement militaire."
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "title": "Mission Estonie",
+      "role": "Administrateur Système",
+      "period": "2023",
+      "duration": "4 mois",
+      "tasks": [
+        "Maintenance des serveurs.",
+        "Migration de Windows Server 2012 vers 2016.",
+        "Déploiement d'un plan de sauvegarde.",
+        "Agrandissement de l’architecture SI."
+      ]
+    },
+    {
+      "title": "Mission GAO",
+      "role": "Technicien de maintenance informatique",
+      "period": "2018",
+      "duration": "4 mois",
+      "highlights": [
+        { "value": "500", "label": "postes déployés" },
+        { "value": "1000", "label": "interventions" }
+      ],
+      "tasks": [
+        "Déploiement et configuration de postes de travail (500 postes).",
+        "Câblage réseau.",
+        "Réparation et dépannage d’ordinateurs (1000 interventions)."
+      ]
+    }
+  ],
+  "project": {
+    "title": "Déploiement d'une infrastructure hyperconvergée",
+    "context": "Infrastructure existante centralisée sur un seul site malgré deux sites interconnectés, sans redondance ni plan de continuité. Si il y a une coupure, alors il y a rupture totale de service.",
+    "recommendationsTitle": "Voici les recommandations faites :",
+    "recommendations": [
+      "Le déploiement d'une infrastructure haute disponibilité (HA)",
+      "Le déploiement d'un Active Directory sécurisé et redondant",
+      "La configuration d'un stockage hyperconvergé (HCI)",
+      "Le déploiement d'un site web avec équilibrage de charge",
+      "Le déploiement d'un accès VPN sécurisé avec authentification RADIUS",
+      "La supervision et la surveillance du réseau (SIEM + NIDS + ZABBIX)",
+      "La sécurisation de l'ensemble de l'infrastructure",
+      "L'implémentation d'une stratégie de sauvegarde et de reprise d'activité (PRA/PCA)"
+    ]
+  },
+  "education": [
+    {
+      "title": "Bachelor Administrateur Système, Réseaux et Cybersécurité",
+      "period": "2025 – 2026",
+      "place": "GFS, Clermont-Ferrand",
+      "description": "Pentest, infrastructure hyperconvergée, bonnes pratiques."
+    },
+    {
+      "title": "Logiciels Métier et environnement militaire",
+      "period": "2023 – 2024",
+      "place": "Saumur, Thionville, Mailly-le-Camp, Airbus Élancourt",
+      "description": "Logiciels et systèmes d’exploitation militaires."
+    },
+    {
+      "title": "BM1 Administrateur Système",
+      "period": "2022",
+      "place": "École des Transmissions du Numérique et du Cyber, Rennes",
+      "description": "Administrateur réseau et système."
+    },
+    {
+      "title": "Formation aux Systèmes d’Informations Opérationnels",
+      "period": "2015",
+      "place": "Armée de Terre, Thionville",
+      "description": "Helpdesk (aide aux usagers), technicien fibre optique."
+    },
+    {
+      "title": "BAC PRO Électrotechnicien",
+      "period": "2013",
+      "place": "Lycée Maréchal Soult, Saint-Amans-Soult"
+    }
+  ],
+  "interests": [
+    "Sport",
+    "Bricolage – Menuiserie",
+    "Jardinage",
+    "Jeux (console, PC, jeux de société)"
+  ],
+  "contact": {
+    "phone": "06 47 85 34 62",
+    "phoneHref": "+33647853462",
+    "email": "massolflorian@gmail.com",
+    "linkedin": {
+      "label": "linkedin.com/in/florian-massol-2243ab212",
+      "url": "https://www.linkedin.com/in/florian-massol-2243ab212"
+    },
+    "address": ["20 rue de Chavaroux Lignat", "63360 Lussat"],
+    "github": [
+      { "label": "github.com/fmassol-63", "url": "https://github.com/fmassol-63" },
+      {
+        "label": "github.com/fmassol-63/zabbix_vault",
+        "url": "https://github.com/fmassol-63/zabbix_vault"
+      }
+    ]
+  }
+}

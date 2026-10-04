@@ -63,9 +63,9 @@ Parallélisables après T2 : T3, T4 et T6 sont indépendants. T9, T10 et T11 son
 
 ### Phase 3 : Contenu
 
-- [ ] T6 : Styles de base + rendu Hero et Profil
-- [ ] T7 : Rendu Compétences, Parcours, Missions
-- [ ] T8 : Rendu Projet, Formations, Intérêts, Contact, pied de page
+- [x] T6 : Styles de base + rendu Hero et Profil
+- [x] T7 : Rendu Compétences, Parcours, Missions
+- [x] T8 : Rendu Projet, Formations, Intérêts, Contact, pied de page
 
 ### Checkpoint B : tout le CV est affiché en FR
 

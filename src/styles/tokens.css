@@ -1,4 +1,23 @@
 :root {
-  --bg: #0a1020;
+  --bg: #070d1a;
+  --bg-glow: #0b1830;
+  --text: #e6f1f7;
+  --muted: #9cb2c6;
+  --accent: #00e5ff;
+  --accent-strong: #5cf0ff;
+  --accent-contrast: #04121a;
+  --card: rgb(10 20 38 / 0.72);
+  --card-border: rgb(0 229 255 / 0.16);
+  --badge-bg: rgb(0 229 255 / 0.08);
+  --badge-border: rgb(0 229 255 / 0.28);
   --vortex-color: #00e5ff;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  --radius: 16px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-gap: clamp(56px, 10vh, 120px);
+  --shadow: 0 20px 50px rgb(0 0 0 / 0.35);
 }
