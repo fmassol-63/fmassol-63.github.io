@@ -260,7 +260,7 @@ export function renderHeader(identity, ui, { theme = 'dark', lang = 'fr' } = {})
   return `
     <a class="skip-link" href="#content">${e(ui.skipLink)}</a>
     <div class="header__inner">
-      <a class="header__brand" href="#accueil" aria-label="${e(ui.home)}">
+      <a class="header__brand" href="#accueil">
         <span class="header__logo" aria-hidden="true">FM</span>
         <span class="header__brand-name">${e(identity.name)}</span>
       </a>
@@ -269,7 +269,7 @@ export function renderHeader(identity, ui, { theme = 'dark', lang = 'fr' } = {})
       </nav>
       <div class="header__actions">
         <button type="button" class="header__button" data-action="lang"
-          aria-label="${e(ui.switchLang)}" lang="${otherLang}">${icon('globe', 18)}<span>${e(ui.otherLangShort)}</span></button>
+          aria-label="${e(ui.otherLangShort)} – ${e(ui.switchLang)}" lang="${otherLang}">${icon('globe', 18)}<span>${e(ui.otherLangShort)}</span></button>
         <button type="button" class="header__button" data-action="theme"
           aria-label="${e(themeLabel)}">${icon(theme === 'dark' ? 'sun' : 'moon', 18)}</button>
         <button type="button" class="header__button header__menu" data-action="menu"

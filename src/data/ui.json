@@ -22,7 +22,6 @@
       "contact": "Contact"
     },
     "navLabel": "Navigation principale",
-    "home": "Retour à l’accueil",
     "menu": "Menu",
     "toLight": "Activer le mode clair",
     "toDark": "Activer le mode sombre",
@@ -63,7 +62,6 @@
       "contact": "Contact"
     },
     "navLabel": "Main navigation",
-    "home": "Back to top",
     "menu": "Menu",
     "toLight": "Switch to light mode",
     "toDark": "Switch to dark mode",

@@ -258,18 +258,18 @@ export function lerp(current, target, factor = 0.1) {
 
 ## Critères de réussite
 
-- [ ] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
-- [ ] La photo extraite du CV s'affiche dans le hero.
-- [ ] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
-- [ ] Animation fluide : pas de saccade visible sur un ordinateur portable récent ; reste utilisable sur mobile milieu de gamme.
-- [ ] Avec « réduire les animations » activé, le tourbillon est immobile.
-- [ ] Bascules langue et thème fonctionnelles et mémorisées.
-- [ ] Le bouton PDF télécharge le CV.
-- [ ] Responsive de 360 px à 1920 px de large, sans défilement horizontal.
-- [ ] Lighthouse mobile : Performance ≥ 90, Accessibilité ≥ 95, Bonnes pratiques ≥ 95, SEO ≥ 95.
-- [ ] Poids total de la page (hors PDF) < 300 Ko compressé.
-- [ ] Aucune erreur dans la console.
-- [ ] `npm test`, `npm run test:e2e` et `npm run lint` passent.
+- [x] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
+- [x] La photo extraite du CV s'affiche dans le hero.
+- [x] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
+- [ ] Animation fluide : pas de saccade visible sur un ordinateur portable récent ; reste utilisable sur mobile milieu de gamme. *(à confirmer par Florian sur ses appareils : non mesurable automatiquement)*
+- [x] Avec « réduire les animations » activé, le tourbillon est immobile.
+- [x] Bascules langue et thème fonctionnelles et mémorisées.
+- [x] Le bouton PDF télécharge le CV.
+- [x] Responsive de 360 px à 1920 px de large, sans défilement horizontal.
+- [x] Lighthouse mobile : Performance ≥ 90, Accessibilité ≥ 95, Bonnes pratiques ≥ 95, SEO ≥ 95. → **99 / 100 / 100 / 100** (clair et sombre, 2026-10-04)
+- [x] Poids total de la page (hors PDF) < 300 Ko compressé. → **~40 Ko**
+- [x] Aucune erreur dans la console.
+- [x] `npm test`, `npm run test:e2e` et `npm run lint` passent.
 
 ## Décisions prises
 

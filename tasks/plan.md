@@ -79,7 +79,7 @@ Parallélisables après T2 : T3, T4 et T6 sont indépendants. T9, T10 et T11 son
 
 ### Phase 5 : Finition
 
-- [ ] T12 : Accessibilité, performance, SEO, suite e2e complète
+- [x] T12 : Accessibilité, performance, SEO, suite e2e complète
 
 ### Checkpoint final : tous les critères de réussite de la spec sont cochés
 

@@ -206,8 +206,14 @@ main:focus {
 }
 
 @media (max-width: 899px) {
+  /* Masqué à l'écran mais lu par les lecteurs d'écran : le lien garde un nom. */
   .header__brand-name {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .header__actions {
