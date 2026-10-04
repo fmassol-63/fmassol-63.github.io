@@ -122,7 +122,13 @@ src/
     render.js            → Génère le HTML des sections à partir du JSON
   styles/
     tokens.css           → Variables CSS (couleurs clair/sombre, espacements, typo)
-    main.css             → Mise en page et composants
+    main.css             → Point d’entrée : importe les fichiers ci-dessous dans l’ordre
+    base.css             → Remise à zéro, typographie, canvas, pied de page
+    header.css           → En-tête, navigation, menu mobile
+    hero.css             → Accueil et terminal animé
+    components.css       → Boutons, sections, cartes
+    motion.css           → Apparition au scroll
+    sections.css         → Contenu des sections (chiffres, compétences, frises…)
 tests/
   unit/                  → Tests Vitest (vortex-math, i18n, theme, render)
   e2e/                   → Tests Playwright (parcours visiteur)
