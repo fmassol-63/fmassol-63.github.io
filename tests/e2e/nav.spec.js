@@ -48,4 +48,18 @@ test.describe('menu mobile', () => {
     await expect(nav).toBeHidden();
     await expect(button).toBeFocused();
   });
+
+  for (const action of ['theme', 'lang']) {
+    test(`reste cohérent après la bascule « ${action} » menu ouvert`, async ({ page }) => {
+      await page.goto('/');
+      await page.locator('[data-action="menu"]').click();
+      await page.locator(`[data-action="${action}"]`).click();
+
+      await expect(page.locator('[data-action="menu"]')).toHaveAttribute('aria-expanded', 'false');
+      await expect(page.locator('#site-nav')).toBeHidden();
+
+      await page.locator('[data-action="menu"]').click();
+      await expect(page.locator('#site-nav')).toBeVisible();
+    });
+  }
 });

@@ -28,10 +28,18 @@ test.describe('animations', () => {
 
     test('tout est visible tout de suite', async ({ page }) => {
       await page.goto('/');
-      await expect(page.locator('html')).not.toHaveClass(/motion-ready/);
-      await expect(page.locator('[data-terminal]')).toHaveClass(/is-done/);
-      await expect(page.locator('.terminal__cmd').last()).toHaveText('ls ~/competences');
-      await expect(page.locator('[data-count="500"]')).toHaveText('500');
+      // État lu une seule fois, sans attendre : une animation qui finirait plus tard doit échouer.
+      const state = await page.evaluate(() => ({
+        motionReady: document.documentElement.classList.contains('motion-ready'),
+        terminalClasses: document.querySelector('[data-terminal]').className,
+        lastCommand: [...document.querySelectorAll('.terminal__cmd')].at(-1).textContent,
+        counter: document.querySelector('[data-count="500"]').textContent,
+      }));
+      expect(state.motionReady).toBe(false);
+      expect(state.terminalClasses).toContain('is-done');
+      expect(state.terminalClasses).not.toContain('is-typing');
+      expect(state.lastCommand).toBe('ls ~/competences');
+      expect(state.counter).toBe('500');
     });
   });
 });

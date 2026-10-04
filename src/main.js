@@ -22,6 +22,8 @@ function renderHeaderOnly() {
     lang,
     theme: currentTheme(),
   });
+  // Le nouveau bouton ☰ est rendu « fermé » : on aligne l'état du menu dessus.
+  setMenuOpen(false);
 }
 
 function renderAll() {

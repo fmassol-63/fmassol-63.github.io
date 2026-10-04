@@ -65,7 +65,7 @@ Objectif : rendre le site moins neutre **sans inventer de faits**. Les textes aj
 
 ### Comportement du tourbillon
 
-- Rendu en **Canvas 2D** : anneaux concentriques façon HUD de supervision (arcs, graduations, points de mesure, étiquettes SRV / NET / SEC / BKP / DNS / VPN, réticule central), en `position: fixed` au centre de l'écran, derrière le contenu. Les anneaux tournent en sens alternés, à des vitesses différentes. *(Choisi le 2026-10-04 parmi 3 propositions — réseau, code, HUD — en remplacement des particules, jugées désagréables.)*
+- Rendu en **Canvas 2D** : anneaux concentriques façon HUD de supervision (arcs, graduations, points de mesure, étiquettes SRV / NET / SEC / BKP / DNS / VPN, réticule central), en `position: fixed` au centre de l'écran, derrière le contenu. Les anneaux tournent en sens alternés, à des vitesses différentes. _(Choisi le 2026-10-04 parmi 3 propositions — réseau, code, HUD — en remplacement des particules, jugées désagréables.)_
 - **Angle de rotation = fonction de la position de scroll** (`window.scrollY`), avec un léger lissage (interpolation) pour éviter les à-coups. Descendre fait tourner dans un sens, remonter dans l'autre.
 - **Immobile tant qu'on ne défile pas** : aucune rotation au repos. Une fois le lissage terminé, la boucle d'animation s'arrête (pas de calcul inutile) et redémarre au prochain scroll.
 - **Couleur dominante : cyan « tech »** (ex. `#00e5ff` en sombre, cyan plus foncé en clair pour le contraste), tirée des variables CSS du thème → s'adapte au mode clair/sombre.
