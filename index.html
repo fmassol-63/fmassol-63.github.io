@@ -19,15 +19,17 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script>
       // Applique le thème avant l'affichage pour éviter un flash de la mauvaise couleur.
-      try {
-        var theme = localStorage.getItem('cv-fm:theme');
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      (function () {
+        try {
+          var theme = localStorage.getItem('cv-fm:theme');
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          // Thème sombre par défaut.
         }
-        document.documentElement.dataset.theme = theme;
-      } catch (error) {
-        // Thème sombre par défaut.
-      }
+      })();
     </script>
   </head>
   <body>

@@ -84,7 +84,7 @@ export function renderStats(stats, ui) {
       </li>`,
   );
   return `
-    <section id="chiffres" class="stats section section--wide" aria-label="${e(ui.statsLabel)}">
+    <section id="chiffres" class="stats" aria-label="${e(ui.statsLabel)}">
       <ul class="stats__list">${items}</ul>
     </section>`;
 }
@@ -230,10 +230,9 @@ export function renderContact(contact, identity, ui) {
       <div><span class="contact__label">${e(label)}</span>${value}</div>
     </li>`;
 
-  const github = list(contact.github, (repo) => externalLink(repo.url, repo.label)).replace(
-    /<\/a><a /g,
-    '</a><br /><a ',
-  );
+  const github = (contact.github ?? [])
+    .map((repo) => externalLink(repo.url, repo.label))
+    .join('<br />');
 
   return section(
     'contact',

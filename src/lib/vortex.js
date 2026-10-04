@@ -26,13 +26,21 @@ export function initVortex(canvas) {
     colors.secondary = css.getPropertyValue('--accent-violet').trim() || '#8b6cff';
   }
 
+  /** Ajuste la résolution du canvas à sa taille affichée. Renvoie false si rien n'a changé. */
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
-    width = window.innerWidth;
-    height = window.innerHeight;
+    // Le canvas fait 100lvh : la barre d'adresse mobile qui se replie ne change pas sa taille.
+    const nextWidth = canvas.clientWidth;
+    const nextHeight = canvas.clientHeight;
+    if (nextWidth === width && nextHeight === height && canvas.width === Math.round(width * dpr)) {
+      return false;
+    }
+    width = nextWidth;
+    height = nextHeight;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return true;
   }
 
   function draw() {
@@ -87,8 +95,7 @@ export function initVortex(canvas) {
   }
 
   function onResize() {
-    resize();
-    draw();
+    if (resize()) draw();
   }
 
   function onVisibilityChange() {
@@ -118,13 +125,6 @@ export function initVortex(canvas) {
     refreshColor() {
       readColors();
       draw();
-    },
-    destroy() {
-      stop();
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-      reducedMotion.removeEventListener('change', onReducedMotionChange);
     },
   };
 }

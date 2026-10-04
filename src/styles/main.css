@@ -58,9 +58,12 @@ img {
 
 #vortex {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  /* Hauteur maximale de l'écran mobile : pas de redimensionnement quand la barre d'adresse bouge. */
+  height: 100lvh;
   z-index: 0;
   pointer-events: none;
 }
@@ -582,9 +585,11 @@ main {
 
 /* ---------- Chiffres clés ---------- */
 
-.stats.section {
-  opacity: 1;
-  transform: none;
+/* Le bandeau n'est pas une carte : seules ses tuiles (.stat) apparaissent au scroll. */
+.stats {
+  width: 100%;
+  max-width: 980px;
+  justify-self: center;
 }
 
 .stats__list {
