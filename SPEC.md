@@ -1,6 +1,7 @@
 # Spec : Site vitrine — CV Administrateur Système
 
 ## Hypothèses
+
 1. Site **100 % statique** (aucun backend, aucune base de données). **Pour l'instant : uniquement en localhost** (`npm run dev` / `npm run preview`) ; l'hébergement sera décidé plus tard.
 2. Navigateurs modernes uniquement (Chrome, Firefox, Safari, Edge — 2 dernières versions). Pas d'IE.
 3. **Source du contenu : `CV_admin.pdf`** (2 pages). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
@@ -10,6 +11,7 @@
 7. `CV_admin.pdf` est copié dans `public/cv-florian-massol.pdf` pour le téléchargement.
 
 ## Objectif
+
 Un site vitrine d'une seule page qui présente le profil d'un **administrateur système** à des recruteurs et des clients.
 Au centre de l'écran, un **tourbillon de particules** reste fixe et **tourne quand on fait défiler la page** ; les sections du CV défilent autour de lui.
 
@@ -17,6 +19,7 @@ Au centre de l'écran, un **tourbillon de particules** reste fixe et **tourne qu
 **Ce qui compte pour eux :** voir en moins de 30 secondes qui tu es, ce que tu sais faire et ce que tu as déjà fait, puis te contacter ou télécharger ton CV.
 
 ### User stories
+
 - En tant que recruteur, je vois dès l'arrivée le nom, le titre (« Administrateur Système ») et le tourbillon animé.
 - En tant que recruteur, en descendant, je découvre **Compétences**, **Missions / Expériences** et **Formations**, et le tourbillon tourne au rythme du scroll.
 - En tant que recruteur, je peux **télécharger le CV en PDF** en un clic.
@@ -26,6 +29,7 @@ Au centre de l'écran, un **tourbillon de particules** reste fixe et **tourne qu
 - En tant que visiteur sensible aux animations, le tourbillon reste **immobile** si mon système demande de réduire les animations.
 
 ### Sections de la page (dans l'ordre)
+
 Le contenu provient intégralement de `CV_admin.pdf`.
 
 1. **Hero** — photo (ronde), « Florian MASSOL », titre « Administrateur Systèmes et Réseaux », boutons « Télécharger le CV » et « Me contacter ».
@@ -44,6 +48,7 @@ Le contenu provient intégralement de `CV_admin.pdf`.
 En-tête fixe : navigation par ancres vers chaque section, bascule FR/EN, bascule clair/sombre.
 
 ### Comportement du tourbillon
+
 - Rendu en **Canvas 2D** : spirale de particules (type galaxie / vortex), positionnée en `position: fixed` au centre de l'écran, derrière le contenu.
 - **Angle de rotation = fonction de la position de scroll** (`window.scrollY`), avec un léger lissage (interpolation) pour éviter les à-coups. Descendre fait tourner dans un sens, remonter dans l'autre.
 - **Immobile tant qu'on ne défile pas** : aucune rotation au repos. Une fois le lissage terminé, la boucle d'animation s'arrête (pas de calcul inutile) et redémarre au prochain scroll.
@@ -55,6 +60,7 @@ En-tête fixe : navigation par ancres vers chaque section, bascule FR/EN, bascul
 - Le contenu reste lisible par-dessus (fond de carte semi-opaque ou contraste suffisant).
 
 ## Tech Stack
+
 - **Vite** (v6) — serveur de dev et build statique
 - **HTML / CSS / JavaScript** (ES modules, aucun framework)
 - **Canvas 2D** natif pour le tourbillon (aucune librairie 3D)
@@ -64,6 +70,7 @@ En-tête fixe : navigation par ancres vers chaque section, bascule FR/EN, bascul
 - Node.js ≥ 20
 
 ## Commandes
+
 ```
 Installation : npm install
 Dev :          npm run dev            # vite, http://localhost:5173
@@ -76,6 +83,7 @@ Format :       npm run format         # prettier --write .
 ```
 
 ## Structure du projet
+
 ```
 index.html               → Page unique, sections vides remplies par le JS
 CV_admin.pdf             → CV source (ne pas modifier)
@@ -104,6 +112,7 @@ tests/
 ```
 
 ## Style de code
+
 - JavaScript moderne, ES modules, `const` par défaut, pas de `var`.
 - Fonctions pures dans `vortex-math.js` / `render.js` pour être testables ; les effets de bord (DOM, canvas, localStorage) sont isolés.
 - Noms de fichiers en `kebab-case`, fonctions en `camelCase`, constantes en `UPPER_SNAKE_CASE`.
@@ -129,19 +138,72 @@ export function lerp(current, target, factor = 0.1) {
 ```json
 // src/data/cv.fr.json (extrait)
 {
-  "identity": { "name": "Florian MASSOL", "title": "Administrateur Systèmes et Réseaux", "photo": "/photo.webp" },
-  "profile": { "text": "Militaire en fin de reconversion, ...", "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel"], "languages": ["Anglais – B1"] },
-  "skills": [{ "category": "Virtualisation", "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"] }],
-  "experience": [{ "company": "Armée de Terre", "role": "Administrateur Système", "period": "2015 – 2025", "location": "Clermont-Ferrand", "duration": "9 ans", "tasks": ["..."] }],
-  "missions": [{ "title": "Mission Estonie", "role": "Administrateur Système", "period": "2023", "duration": "4 mois", "tasks": ["Migration de Windows Server 2012 vers 2016", "..."] }],
-  "project": { "title": "Déploiement d'une infrastructure hyperconvergée", "context": "...", "recommendations": ["..."] },
-  "education": [{ "title": "BM1 Administrateur Système", "period": "2022", "school": "École des Transmissions du Numérique et du Cyber, Rennes", "description": "..." }],
-  "interests": ["Sport", "Bricolage – Menuiserie", "Jardinage", "Jeux (console, PC, jeux de société)"],
-  "contact": { "phone": "...", "email": "...", "linkedin": "...", "address": "...", "github": ["..."] }
+  "identity": {
+    "name": "Florian MASSOL",
+    "title": "Administrateur Systèmes et Réseaux",
+    "photo": "/photo.webp"
+  },
+  "profile": {
+    "text": "Militaire en fin de reconversion, ...",
+    "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel"],
+    "languages": ["Anglais – B1"]
+  },
+  "skills": [
+    {
+      "category": "Virtualisation",
+      "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Armée de Terre",
+      "role": "Administrateur Système",
+      "period": "2015 – 2025",
+      "location": "Clermont-Ferrand",
+      "duration": "9 ans",
+      "tasks": ["..."]
+    }
+  ],
+  "missions": [
+    {
+      "title": "Mission Estonie",
+      "role": "Administrateur Système",
+      "period": "2023",
+      "duration": "4 mois",
+      "tasks": ["Migration de Windows Server 2012 vers 2016", "..."]
+    }
+  ],
+  "project": {
+    "title": "Déploiement d'une infrastructure hyperconvergée",
+    "context": "...",
+    "recommendations": ["..."]
+  },
+  "education": [
+    {
+      "title": "BM1 Administrateur Système",
+      "period": "2022",
+      "school": "École des Transmissions du Numérique et du Cyber, Rennes",
+      "description": "..."
+    }
+  ],
+  "interests": [
+    "Sport",
+    "Bricolage – Menuiserie",
+    "Jardinage",
+    "Jeux (console, PC, jeux de société)"
+  ],
+  "contact": {
+    "phone": "...",
+    "email": "...",
+    "linkedin": "...",
+    "address": "...",
+    "github": ["..."]
+  }
 }
 ```
 
 ## Stratégie de test
+
 - **Unitaires (Vitest)** :
   - `vortex-math` : angle proportionnel au scroll, sens inversé à la remontée, lissage converge, nombre de particules selon largeur d'écran.
   - `i18n` : langue par défaut selon `navigator.language`, choix enregistré prioritaire, repli sur FR.
@@ -160,6 +222,7 @@ export function lerp(current, target, factor = 0.1) {
 - Pas d'objectif de couverture chiffré global ; tous les modules de `src/lib/` ont des tests.
 
 ## Limites (Boundaries)
+
 - **Toujours :**
   - Lancer `npm test` et `npm run lint` avant de déclarer une tâche finie.
   - Garder le contenu dans les JSON, jamais en dur.
@@ -178,6 +241,7 @@ export function lerp(current, target, factor = 0.1) {
   - Inventer des expériences, diplômes ou compétences absents du CV.
 
 ## Critères de réussite
+
 - [ ] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
 - [ ] La photo extraite du CV s'affiche dans le hero.
 - [ ] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
@@ -192,11 +256,13 @@ export function lerp(current, target, factor = 0.1) {
 - [ ] `npm test`, `npm run test:e2e` et `npm run lint` passent.
 
 ## Décisions prises
+
 - CV source : `CV_admin.pdf` · pas de CV anglais · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
 
 ## Questions ouvertes
+
 1. **Liens à vérifier** : le texte du PDF et son rendu visuel ne concordent pas.
    - GitHub : `github.com/fmassol63` ou `github.com/fmassol-63` ? (le texte du PDF dit `fmassol63`, l'image montre `fmassol-63`)
    - LinkedIn : `linkedin.com/in/florian-massol-2243ab212` ou `florianmassol-2243ab212` ?
-   → Par défaut, je prends la version **avec tiret** (rendu visuel) et je la vérifierai en ouvrant les liens.
+     → Par défaut, je prends la version **avec tiret** (rendu visuel) et je la vérifierai en ouvrant les liens.
 2. **Fautes de frappe du CV** : corriger les noms de produits évidents sur le site (« Synologie » → Synology, « Rsynch » → rsync, « sécurise » → sécurisé), ou recopier à l'identique ? → Par défaut, je **corrige** ces trois coquilles uniquement.

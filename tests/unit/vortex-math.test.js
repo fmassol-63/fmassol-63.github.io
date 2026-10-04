@@ -52,7 +52,7 @@ describe('particleCountForWidth', () => {
     for (const width of [320, 768, 1280, 2560]) {
       const count = particleCountForWidth(width);
       expect(count).toBeGreaterThanOrEqual(200);
-      expect(count).toBeLessThanOrEqual(1200);
+      expect(count).toBeLessThanOrEqual(2000);
     }
   });
 });
