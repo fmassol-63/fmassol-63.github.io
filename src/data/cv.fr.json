@@ -5,8 +5,8 @@
     "photo": "/photo.webp",
     "photoAlt": "Photo de Florian MASSOL",
     "cv": "/cv-florian-massol.pdf",
-    "status": "En fin de reconversion — ouvert aux opportunités",
-    "tagline": "10 ans à installer, maintenir et sécuriser des systèmes d’information, de l’Armée de Terre à l’entreprise."
+    "status": "Reconversion terminée — disponible immédiatement",
+    "tagline": "11 ans à installer, maintenir et sécuriser des systèmes d’information, de l’Armée de Terre à l’entreprise."
   },
   "terminal": [
     {
@@ -18,7 +18,7 @@
       "output": [
         "● florian.service — Administrateur Systèmes et Réseaux",
         "   Active: active (running) depuis 2015",
-        "   Parcours: Armée de Terre (9 ans) → 3D - Agence Informatique Tribout"
+        "   Parcours: Armée de Terre (10 ans) → 3D - Agence Informatique Tribout"
       ]
     },
     {
@@ -28,7 +28,7 @@
   ],
   "stats": [
     {
-      "value": 10,
+      "value": 11,
       "suffix": " ans",
       "label": "d’expérience en informatique"
     },
@@ -194,7 +194,7 @@
       "role": "Administrateur Système",
       "period": "2015 – 2025",
       "location": "Clermont-Ferrand",
-      "duration": "9 ans",
+      "duration": "10 ans",
       "tasks": [
         "Installation, maintenance et entretien des serveurs et des postes clients.",
         "Chef de trois équipes (chef de groupe).",

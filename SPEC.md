@@ -56,7 +56,7 @@ Objectif : rendre le site moins neutre **sans inventer de faits**. Les textes aj
   - badge de statut, accroche d'une phrase ;
   - **terminal animé** qui « tape » des commandes (`whoami`, `systemctl status`, `ls competences/`) dont les sorties reprennent le CV.
   - Sans animation (reduced-motion) : texte affiché d'un coup. Le texte complet est toujours présent dans le HTML.
-- **Bandeau de chiffres clés** sous l'accueil : 10 ans d'expérience, 500 postes, 1000 interventions, 3 équipes encadrées, 13 domaines de compétences. Les compteurs vont de 0 à leur valeur quand ils deviennent visibles.
+- **Bandeau de chiffres clés** sous l'accueil : 11 ans d’expérience, 500 postes, 1000 interventions, 3 équipes encadrées, 13 domaines de compétences. Les compteurs vont de 0 à leur valeur quand ils deviennent visibles.
 - **Section « Ce que j'apporte »** (après Profil) : 4 atouts déduits du CV (gestion de crise, encadrement et formation, continuité d'activité, sécurité).
 - **Icônes et couleurs** :
   - icône par section, par catégorie de compétences et par atout ;
