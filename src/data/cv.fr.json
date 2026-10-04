@@ -51,7 +51,7 @@
   ],
   "profile": {
     "text": "Ancien militaire ayant terminé ma reconversion, je souhaite mettre en application mes connaissances sur les systèmes informatiques, aider mon équipe à gérer les situations de crise et leur fournir un soutien.",
-    "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel", "Langues : Anglais – B1"]
+    "facts": ["Permis B et C – Véhicule personnel", "Langues : Anglais – B1"]
   },
   "strengths": [
     {
@@ -297,7 +297,6 @@
       "label": "linkedin.com/in/florian-massol-2243ab212",
       "url": "https://www.linkedin.com/in/florian-massol-2243ab212"
     },
-    "address": ["20 rue de Chavaroux Lignat", "63360 Lussat"],
     "github": [
       {
         "label": "github.com/fmassol-63",

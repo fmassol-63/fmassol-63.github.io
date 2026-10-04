@@ -109,7 +109,8 @@ describe('renderProfile', () => {
     const html = renderProfile(cv.profile, ui);
     expect(html).toContain('id="profil"');
     expect(html).toContain('Ancien militaire ayant terminé ma reconversion');
-    expect(html).toContain('Né le 02/12/1994');
+    expect(html).toContain('Permis B et C – Véhicule personnel');
+    expect(html).not.toContain('02/12/1994');
     expect(html).toContain('Langues : Anglais – B1');
   });
 });
@@ -188,6 +189,16 @@ describe('renderContact', () => {
     expect(html).toContain('href="mailto:massolflorian@gmail.com"');
     expect(html).toContain('href="https://github.com/fmassol-63"');
     expect(html).toContain('href="https://github.com/fmassol-63/zabbix_vault"');
+  });
+
+  it('n’affiche pas d’adresse postale sur le site public', () => {
+    expect(html).not.toContain('<address>');
+    expect(html).not.toContain('Chavaroux');
+  });
+
+  it('affiche l’adresse si elle est fournie', () => {
+    const withAddress = renderContact({ ...cv.contact, address: ['1 rue X'] }, cv.identity, ui);
+    expect(withAddress).toContain('<address>1 rue X<br /></address>');
   });
 
   it('sécurise les liens externes', () => {

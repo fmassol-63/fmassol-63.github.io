@@ -246,7 +246,15 @@ export function renderContact(contact, identity, ui) {
        ${row('email', ui.email, `<a href="mailto:${e(contact.email)}">${e(contact.email)}</a>`)}
        ${row('linkedin', ui.linkedin, externalLink(contact.linkedin.url, contact.linkedin.label))}
        ${row('github', ui.github, github)}
-       ${row('address', ui.address, `<address>${list(contact.address, (line) => `${e(line)}<br />`)}</address>`)}
+       ${
+         contact.address?.length
+           ? row(
+               'address',
+               ui.address,
+               `<address>${list(contact.address, (line) => `${e(line)}<br />`)}</address>`,
+             )
+           : ''
+       }
      </ul>
      ${downloadButton(identity, ui, 'contact__cta')}`,
     { iconName: 'email' },

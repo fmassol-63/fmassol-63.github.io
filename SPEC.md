@@ -2,7 +2,7 @@
 
 ## Hypothèses
 
-1. Site **100 % statique** (aucun backend, aucune base de données). **Pour l'instant : uniquement en localhost** (`npm run dev` / `npm run preview`) ; l'hébergement sera décidé plus tard.
+1. Site **100 % statique** (aucun backend, aucune base de données). **Hébergé sur GitHub Pages** : https://fmassol-63.github.io/ (dépôt `fmassol-63.github.io`), déployé par GitHub Actions à chaque push sur `main` (lint, tests unitaires, build).
 2. Navigateurs modernes uniquement (Chrome, Firefox, Safari, Edge — 2 dernières versions). Pas d'IE.
 3. **Source du contenu : `CV_admin.pdf`** (2 pages). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
 4. Le contact se fait par liens (tel, mailto, LinkedIn, GitHub) — pas de formulaire.
@@ -42,7 +42,7 @@ Le contenu provient intégralement de `CV_admin.pdf`.
 6. **Projet** — « Déploiement d'une infrastructure hyperconvergée » : contexte (site unique, pas de redondance) + les 8 recommandations.
 7. **Formations** — frise : Bachelor ASRC (2025–2026, GFS), Logiciels métier & environnement militaire (2023–2024), BM1 Administrateur Système (2022, ETNC Rennes), Formation SIO (2015, Armée de Terre), BAC PRO Électrotechnicien (2013).
 8. **Centres d'intérêt** — Sport, Bricolage – Menuiserie, Jardinage, Jeux (console, PC, jeux de société).
-9. **Contact** — téléphone, email, LinkedIn, adresse, GitHub (profil + dépôt zabbix_vault), bouton PDF.
+9. **Contact** — téléphone, email, LinkedIn, GitHub (profil + dépôt zabbix_vault), bouton PDF.
 10. **Pied de page** — © année, nom.
 
 En-tête fixe : navigation par ancres vers chaque section, bascule FR/EN, bascule clair/sombre.
@@ -256,7 +256,7 @@ export function lerp(current, target, factor = 0.1) {
   - Changer la forme du tourbillon ou passer en 3D.
   - Modifier le contenu du CV (formulations, ajouts) au-delà de la transcription fidèle.
   - Choisir / configurer l'hébergement et le nom de domaine.
-  - **Avant toute mise en ligne publique** : revalider l'affichage de l'adresse postale, du téléphone et de la date de naissance (OK en localhost, à reconfirmer une fois le site public).
+  - Données personnelles (décision du 2026-10-04, mise en ligne publique) : téléphone, e-mail, LinkedIn et GitHub affichés ; **adresse postale et date de naissance retirées du site** (elles restent dans le PDF téléchargeable). Toute réintroduction se demande d’abord.
 - **Jamais :**
   - Modifier ou supprimer `CV_admin.pdf`.
   - Ajouter du tracking / analytics / cookies tiers.

@@ -27,19 +27,31 @@
     }
   ],
   "stats": [
-    { "value": 11, "suffix": " yrs", "label": "of IT experience" },
-    { "value": 500, "label": "workstations deployed" },
-    { "value": 1000, "label": "repair interventions" },
-    { "value": 3, "label": "teams led" },
-    { "value": 13, "label": "skill areas" }
+    {
+      "value": 11,
+      "suffix": " yrs",
+      "label": "of IT experience"
+    },
+    {
+      "value": 500,
+      "label": "workstations deployed"
+    },
+    {
+      "value": 1000,
+      "label": "repair interventions"
+    },
+    {
+      "value": 3,
+      "label": "teams led"
+    },
+    {
+      "value": 13,
+      "label": "skill areas"
+    }
   ],
   "profile": {
     "text": "Former soldier with my career transition now complete, I want to put my knowledge of IT systems into practice, help my team handle crisis situations and support them.",
-    "facts": [
-      "Born on 2 December 1994",
-      "Driving licences B and C – own vehicle",
-      "Languages: English – B1"
-    ]
+    "facts": ["Driving licences B and C – own vehicle", "Languages: English – B1"]
   },
   "strengths": [
     {
@@ -209,8 +221,14 @@
       "period": "2018",
       "duration": "4 months",
       "highlights": [
-        { "value": "500", "label": "workstations deployed" },
-        { "value": "1000", "label": "interventions" }
+        {
+          "value": "500",
+          "label": "workstations deployed"
+        },
+        {
+          "value": "1000",
+          "label": "interventions"
+        }
       ],
       "tasks": [
         "Deployment and configuration of workstations (500 units).",
@@ -274,9 +292,11 @@
       "label": "linkedin.com/in/florian-massol-2243ab212",
       "url": "https://www.linkedin.com/in/florian-massol-2243ab212"
     },
-    "address": ["20 rue de Chavaroux Lignat", "63360 Lussat"],
     "github": [
-      { "label": "github.com/fmassol-63", "url": "https://github.com/fmassol-63" },
+      {
+        "label": "github.com/fmassol-63",
+        "url": "https://github.com/fmassol-63"
+      },
       {
         "label": "github.com/fmassol-63/zabbix_vault",
         "url": "https://github.com/fmassol-63/zabbix_vault"
