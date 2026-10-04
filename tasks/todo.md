@@ -47,18 +47,18 @@ Définition de « terminé » pour chaque tâche : critères d'acceptation coch�
 
 ## Tâche 3 : Assets : PDF, photo, favicon
 
-**Description :** Copier `CV_admin.pdf` vers `public/cv-florian-massol.pdf`. Écrire `scripts/extract-photo.mjs` (Node, sans dépendance) qui extrait les JPEG intégrés au PDF ; garder la photo de profil dans `public/photo.jpg`. Créer un favicon SVG cyan.
+**Description :** Copier `CV_admin.pdf` vers `public/cv-florian-massol.pdf`. Écrire `scripts/extract-photo.mjs` (Node, sans dépendance) qui extrait les JPEG intégrés au PDF ; garder la photo de profil dans `public/photo.webp`. Créer un favicon SVG cyan.
 
 **Critères d'acceptation :**
-- [ ] `public/photo.jpg` est bien la photo du CV, nette et de poids < 80 Ko.
+- [ ] `public/photo.webp` est bien la photo du CV, nette et de poids < 80 Ko.
 - [ ] `public/cv-florian-massol.pdf` est identique à `CV_admin.pdf`, qui reste intact.
 - [ ] Si l'extraction échoue, le repli prévu au plan est appliqué et signalé.
 
 **Vérification :**
-- [ ] Manuel : ouvrir `public/photo.jpg` ; comparer les empreintes des deux PDF (`certutil -hashfile` ou `sha256sum`)
+- [ ] Manuel : ouvrir `public/photo.webp` ; comparer les empreintes des deux PDF (`certutil -hashfile` ou `sha256sum`)
 
 **Dépendances :** T2
-**Fichiers :** `scripts/extract-photo.mjs`, `public/photo.jpg`, `public/cv-florian-massol.pdf`, `public/favicon.svg`
+**Fichiers :** `scripts/extract-photo.mjs`, `public/photo.webp`, `public/cv-florian-massol.pdf`, `public/favicon.svg`
 **Taille :** S
 
 ---

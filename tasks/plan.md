@@ -41,11 +41,11 @@ Parallélisables après T2 : T3, T4 et T6 sont indépendants. T9, T10 et T11 son
 ## Liste des tâches
 
 ### Phase 0 : Prérequis
-- [ ] T1 : Installer Node.js LTS et initialiser git
+- [x] T1 : Installer Node.js LTS et initialiser git
 
 ### Phase 1 : Fondations
-- [ ] T2 : Squelette Vite + ESLint/Prettier/Vitest/Playwright
-- [ ] T3 : Assets : PDF téléchargeable, photo extraite, favicon
+- [x] T2 : Squelette Vite + ESLint/Prettier/Vitest/Playwright
+- [x] T3 : Assets : PDF téléchargeable, photo extraite, favicon
 
 ### Phase 2 : Tourbillon (risque le plus élevé)
 - [ ] T4 : `vortex-math` : fonctions pures + tests

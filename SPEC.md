@@ -6,7 +6,7 @@
 3. **Source du contenu : `CV_admin.pdf`** (2 pages). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
 4. Le contact se fait par liens (tel, mailto, LinkedIn, GitHub) — pas de formulaire.
 5. Il n'existe **pas de CV anglais** : la version EN du site est une traduction rédigée à partir du FR (à relire par Florian). Le bouton PDF propose le CV français dans les deux langues.
-6. La **photo de profil** est extraite du PDF (opération ponctuelle, pas de dépendance ajoutée au projet) et enregistrée dans `public/photo.jpg`.
+6. La **photo de profil** est extraite du PDF (opération ponctuelle, pas de dépendance ajoutée au projet) et enregistrée dans `public/photo.webp`.
 7. `CV_admin.pdf` est copié dans `public/cv-florian-massol.pdf` pour le téléchargement.
 
 ## Objectif
@@ -81,7 +81,7 @@ index.html               → Page unique, sections vides remplies par le JS
 CV_admin.pdf             → CV source (ne pas modifier)
 public/
   cv-florian-massol.pdf  → Copie du CV, téléchargeable
-  photo.jpg              → Photo extraite du CV
+  photo.webp             → Photo extraite du CV (détourée, WebP)
   favicon.svg
 src/
   main.js                → Point d'entrée : initialise thème, langue, rendu, tourbillon
@@ -129,7 +129,7 @@ export function lerp(current, target, factor = 0.1) {
 ```json
 // src/data/cv.fr.json (extrait)
 {
-  "identity": { "name": "Florian MASSOL", "title": "Administrateur Systèmes et Réseaux", "photo": "/photo.jpg" },
+  "identity": { "name": "Florian MASSOL", "title": "Administrateur Systèmes et Réseaux", "photo": "/photo.webp" },
   "profile": { "text": "Militaire en fin de reconversion, ...", "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel"], "languages": ["Anglais – B1"] },
   "skills": [{ "category": "Virtualisation", "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"] }],
   "experience": [{ "company": "Armée de Terre", "role": "Administrateur Système", "period": "2015 – 2025", "location": "Clermont-Ferrand", "duration": "9 ans", "tasks": ["..."] }],
