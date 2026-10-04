@@ -3,6 +3,7 @@
     "pageTitle": "Florian MASSOL — Administrateur Systèmes et Réseaux",
     "sections": {
       "profile": "Profil",
+      "strengths": "Ce que j’apporte",
       "skills": "Compétences",
       "experience": "Parcours professionnel",
       "missions": "Missions",
@@ -11,6 +12,8 @@
       "interests": "Centres d’intérêt",
       "contact": "Contact"
     },
+    "statsLabel": "Chiffres clés",
+    "terminalTitle": "florian@sysadmin: ~",
     "downloadCv": "Télécharger le CV",
     "contactMe": "Me contacter",
     "phone": "Téléphone",

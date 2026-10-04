@@ -1,5 +1,6 @@
 // Génère le HTML des sections à partir des données du CV.
 // Fonctions pures : (données, libellés) → chaîne HTML, tout texte étant échappé.
+import { icon } from './icons.js';
 
 const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
@@ -11,12 +12,12 @@ export function escapeHtml(value) {
 const e = escapeHtml;
 const list = (items, render) => (items ?? []).map(render).join('');
 
-function section(id, title, body, modifier = '') {
+function section(id, title, body, { modifier = '', iconName } = {}) {
   return `
     <section id="${id}" class="section ${modifier}" aria-labelledby="${id}-title">
       <div class="card">
         <h2 id="${id}-title" class="section__title">
-          <span class="section__prompt" aria-hidden="true">~/</span>${e(title)}
+          <span class="section__icon">${icon(iconName, 22)}</span>${e(title)}
         </h2>
         ${body}
       </div>
@@ -27,39 +28,64 @@ function externalLink(url, label) {
   return `<a href="${e(url)}" target="_blank" rel="noopener noreferrer">${e(label)}</a>`;
 }
 
-const ICONS = {
-  download:
-    '<path d="M12 3v12m0 0-5-5m5 5 5-5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
-  phone:
-    '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
-  email:
-    '<path d="M3 6h18v12H3zM3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
-  linkedin:
-    '<path d="M4 4h16v16H4zM8 10v6M8 7.5v.01M12 16v-6m0 2.5a2.5 2.5 0 0 1 5 0V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-  address:
-    '<path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/>',
-  github:
-    '<path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5a3 3 0 0 0-.8-2.3c2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.3-3.2 4.4 4.4 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.6 2.7 5.6 3 5.6 3a4.4 4.4 0 0 0-.1 3.2A4.7 4.7 0 0 0 4.2 9.4c0 4.6 2.8 5.7 5.5 6a3 3 0 0 0-.8 2.3V21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
-};
-
-const icon = (name) =>
-  `<svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">${ICONS[name]}</svg>`;
-
 function downloadButton(identity, ui, modifier = '') {
   return `<a class="button ${modifier}" href="${e(identity.cv)}" download>${icon('download')}${e(ui.downloadCv)}</a>`;
 }
 
-export function renderHero(identity, ui) {
+export function renderTerminal(terminal, ui) {
+  if (!terminal?.length) return '';
+  const lines = list(
+    terminal,
+    (entry) => `
+      <p class="terminal__line terminal__line--command"><span class="terminal__prompt" aria-hidden="true">$ </span><span class="terminal__cmd">${e(entry.command)}</span></p>
+      ${list(entry.output, (line) => `<p class="terminal__line">${e(line)}</p>`)}`,
+  );
+  return `
+    <div class="terminal" data-terminal>
+      <div class="terminal__bar" aria-hidden="true">
+        <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+        <span class="terminal__name">${e(ui.terminalTitle)}</span>
+      </div>
+      <div class="terminal__body">${lines}<span class="terminal__cursor" aria-hidden="true"></span></div>
+    </div>`;
+}
+
+export function renderHero(identity, terminal, ui) {
+  const status = identity.status
+    ? `<p class="hero__status"><span class="hero__status-dot" aria-hidden="true"></span>${e(identity.status)}</p>`
+    : '';
+  const tagline = identity.tagline ? `<p class="hero__tagline">${e(identity.tagline)}</p>` : '';
   return `
     <section id="accueil" class="hero" aria-labelledby="accueil-title">
+      ${status}
       <img class="hero__photo" src="${e(identity.photo)}" alt="${e(identity.photoAlt)}"
         width="306" height="348" fetchpriority="high" />
       <h1 id="accueil-title" class="hero__name">${e(identity.name)}</h1>
-      <p class="hero__title"><span class="hero__prompt" aria-hidden="true">$ whoami → </span>${e(identity.title)}</p>
+      <p class="hero__title">${e(identity.title)}</p>
+      ${tagline}
       <div class="hero__actions">
         ${downloadButton(identity, ui)}
         <a class="button button--ghost" href="#contact">${e(ui.contactMe)}</a>
       </div>
+      ${renderTerminal(terminal, ui)}
+    </section>`;
+}
+
+export function renderStats(stats, ui) {
+  if (!stats?.length) return '';
+  const items = list(
+    stats,
+    (stat) => `
+      <li class="stat">
+        <span class="stat__value"><span data-count="${e(stat.value)}">${e(stat.value)}</span>${
+          stat.suffix ? `<span class="stat__suffix">${e(stat.suffix)}</span>` : ''
+        }</span>
+        <span class="stat__label">${e(stat.label)}</span>
+      </li>`,
+  );
+  return `
+    <section id="chiffres" class="stats section section--wide" aria-label="${e(ui.statsLabel)}">
+      <ul class="stats__list">${items}</ul>
     </section>`;
 }
 
@@ -69,8 +95,25 @@ export function renderProfile(profile, ui) {
     ui.sections.profile,
     `<p class="profile__text">${e(profile.text)}</p>
      <ul class="facts">${list(profile.facts, (fact) => `<li class="facts__item">${e(fact)}</li>`)}</ul>`,
-    'is-left',
+    { modifier: 'is-left', iconName: 'user' },
   );
+}
+
+export function renderStrengths(strengths, ui) {
+  if (!strengths?.length) return '';
+  const items = list(
+    strengths,
+    (item) => `
+      <li class="strength">
+        <span class="strength__icon">${icon(item.icon, 26)}</span>
+        <h3 class="strength__title">${e(item.title)}</h3>
+        <p class="strength__text">${e(item.text)}</p>
+      </li>`,
+  );
+  return section('atouts', ui.sections.strengths, `<ul class="strengths">${items}</ul>`, {
+    modifier: 'section--wide',
+    iconName: 'star',
+  });
 }
 
 export function renderSkills(skills, ui) {
@@ -78,16 +121,14 @@ export function renderSkills(skills, ui) {
     skills,
     (group) => `
       <div class="skills__group">
-        <h3 class="skills__category">${e(group.category)}</h3>
+        <h3 class="skills__category"><span class="skills__icon">${icon(group.icon, 18)}</span>${e(group.category)}</h3>
         <ul class="badges">${list(group.items, (item) => `<li class="badge">${e(item)}</li>`)}</ul>
       </div>`,
   );
-  return section(
-    'competences',
-    ui.sections.skills,
-    `<div class="skills">${groups}</div>`,
-    'section--wide',
-  );
+  return section('competences', ui.sections.skills, `<div class="skills">${groups}</div>`, {
+    modifier: 'section--wide',
+    iconName: 'cpu',
+  });
 }
 
 function timelineMeta(parts) {
@@ -112,12 +153,10 @@ export function renderExperience(experience, ui) {
         ${tasksList(job.tasks)}
       </li>`,
   );
-  return section(
-    'parcours',
-    ui.sections.experience,
-    `<ol class="timeline">${items}</ol>`,
-    'is-right',
-  );
+  return section('parcours', ui.sections.experience, `<ol class="timeline">${items}</ol>`, {
+    modifier: 'is-right',
+    iconName: 'briefcase',
+  });
 }
 
 export function renderMissions(missions, ui) {
@@ -141,12 +180,10 @@ export function renderMissions(missions, ui) {
         ${tasksList(mission.tasks)}
       </article>`;
   });
-  return section(
-    'missions',
-    ui.sections.missions,
-    `<div class="missions">${cards}</div>`,
-    'is-left',
-  );
+  return section('missions', ui.sections.missions, `<div class="missions">${cards}</div>`, {
+    modifier: 'is-left',
+    iconName: 'flag',
+  });
 }
 
 export function renderProject(project, ui) {
@@ -157,7 +194,7 @@ export function renderProject(project, ui) {
      <p>${e(project.context)}</p>
      <p class="project__subtitle">${e(project.recommendationsTitle)}</p>
      <ul class="checklist">${list(project.recommendations, (item) => `<li>${e(item)}</li>`)}</ul>`,
-    'is-right',
+    { modifier: 'is-right', iconName: 'lightbulb' },
   );
 }
 
@@ -171,12 +208,10 @@ export function renderEducation(education, ui) {
         ${course.description ? `<p class="timeline__text">${e(course.description)}</p>` : ''}
       </li>`,
   );
-  return section(
-    'formation',
-    ui.sections.education,
-    `<ol class="timeline">${items}</ol>`,
-    'is-left',
-  );
+  return section('formation', ui.sections.education, `<ol class="timeline">${items}</ol>`, {
+    modifier: 'is-left',
+    iconName: 'graduation',
+  });
 }
 
 export function renderInterests(interests, ui) {
@@ -184,14 +219,14 @@ export function renderInterests(interests, ui) {
     'interets',
     ui.sections.interests,
     `<ul class="badges badges--large">${list(interests, (item) => `<li class="badge">${e(item)}</li>`)}</ul>`,
-    'is-right',
+    { modifier: 'is-right', iconName: 'heart' },
   );
 }
 
 export function renderContact(contact, identity, ui) {
   const row = (iconName, label, value) => `
     <li class="contact__item">
-      ${icon(iconName)}
+      <span class="contact__icon">${icon(iconName)}</span>
       <div><span class="contact__label">${e(label)}</span>${value}</div>
     </li>`;
 
@@ -211,6 +246,7 @@ export function renderContact(contact, identity, ui) {
        ${row('address', ui.address, `<address>${list(contact.address, (line) => `${e(line)}<br />`)}</address>`)}
      </ul>
      ${downloadButton(identity, ui, 'contact__cta')}`,
+    { iconName: 'email' },
   );
 }
 
@@ -220,8 +256,10 @@ export function renderFooter(identity, ui, year = new Date().getFullYear()) {
 
 export function renderPage(cv, ui) {
   return [
-    renderHero(cv.identity, ui),
+    renderHero(cv.identity, cv.terminal, ui),
+    renderStats(cv.stats, ui),
     renderProfile(cv.profile, ui),
+    renderStrengths(cv.strengths, ui),
     renderSkills(cv.skills, ui),
     renderExperience(cv.experience, ui),
     renderMissions(cv.missions, ui),

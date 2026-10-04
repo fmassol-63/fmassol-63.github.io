@@ -4,18 +4,85 @@
     "title": "Administrateur Systèmes et Réseaux",
     "photo": "/photo.webp",
     "photoAlt": "Photo de Florian MASSOL",
-    "cv": "/cv-florian-massol.pdf"
+    "cv": "/cv-florian-massol.pdf",
+    "status": "En fin de reconversion — ouvert aux opportunités",
+    "tagline": "10 ans à installer, maintenir et sécuriser des systèmes d’information, de l’Armée de Terre à l’entreprise."
   },
+  "terminal": [
+    {
+      "command": "whoami",
+      "output": ["florian.massol — Administrateur Systèmes et Réseaux"]
+    },
+    {
+      "command": "systemctl status florian",
+      "output": [
+        "● florian.service — Administrateur Systèmes et Réseaux",
+        "   Active: active (running) depuis 2015",
+        "   Parcours: Armée de Terre (9 ans) → 3D - Agence Informatique Tribout"
+      ]
+    },
+    {
+      "command": "ls ~/competences",
+      "output": ["virtualisation/  systemes/  reseaux/  sauvegarde/  siem/  pentest/"]
+    }
+  ],
+  "stats": [
+    {
+      "value": 10,
+      "suffix": " ans",
+      "label": "d’expérience en informatique"
+    },
+    {
+      "value": 500,
+      "label": "postes déployés"
+    },
+    {
+      "value": 1000,
+      "label": "interventions de dépannage"
+    },
+    {
+      "value": 3,
+      "label": "équipes encadrées"
+    },
+    {
+      "value": 13,
+      "label": "domaines de compétences"
+    }
+  ],
   "profile": {
     "text": "Militaire en fin de reconversion, je souhaite mettre en application mes connaissances sur les systèmes informatiques, aider mon équipe à gérer les situations de crise et leur fournir un soutien.",
     "facts": ["Né le 02/12/1994", "Permis B et C – Véhicule personnel", "Langues : Anglais – B1"]
   },
+  "strengths": [
+    {
+      "icon": "zap",
+      "title": "Gestion de crise",
+      "text": "Habitué à garder les systèmes opérationnels sous pression, en environnement militaire et en mission à l’étranger (Estonie)."
+    },
+    {
+      "icon": "users",
+      "title": "Encadrement et formation",
+      "text": "Chef de groupe de trois équipes et formateur sur les systèmes informatiques et l’environnement militaire."
+    },
+    {
+      "icon": "backup",
+      "title": "Continuité d’activité",
+      "text": "Déploiement et validation de PRA, plans de sauvegarde et infrastructure haute disponibilité (HCI)."
+    },
+    {
+      "icon": "lock",
+      "title": "Sécurité",
+      "text": "Pare-feu, SIEM (Wazuh, Suricata), pentest et sécurisation de l’ensemble d’une infrastructure."
+    }
+  ],
   "skills": [
     {
+      "icon": "layers",
       "category": "Virtualisation",
       "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"]
     },
     {
+      "icon": "server",
       "category": "Systèmes",
       "items": [
         "Windows Server 2008 R2 à 2025",
@@ -23,10 +90,12 @@
       ]
     },
     {
+      "icon": "drive",
       "category": "NAS",
       "items": ["Synology", "QNAP", "NetGear"]
     },
     {
+      "icon": "backup",
       "category": "Sauvegarde",
       "items": [
         "Backup Exec",
@@ -42,10 +111,12 @@
       ]
     },
     {
+      "icon": "shield",
       "category": "Antivirus",
       "items": ["Apex One", "Deep Security", "ESET", "Sophos"]
     },
     {
+      "icon": "cog",
       "category": "Services",
       "items": [
         "Active Directory",
@@ -62,6 +133,7 @@
       ]
     },
     {
+      "icon": "network",
       "category": "Réseaux",
       "items": [
         "Routeur (CISCO, Ubiquiti, Zyxel)",
@@ -74,26 +146,32 @@
       ]
     },
     {
+      "icon": "activity",
       "category": "Supervision",
       "items": ["Zabbix", "TacticalRMM"]
     },
     {
+      "icon": "eye",
       "category": "SIEM",
       "items": ["Wazuh", "ElasticStack", "Suricata"]
     },
     {
+      "icon": "bug",
       "category": "Pentest",
       "items": ["KaliLinux", "Parrot", "BlackArch"]
     },
     {
+      "icon": "box",
       "category": "Autre",
       "items": ["Docker", "Vault", "HAproxy", "Git"]
     },
     {
+      "icon": "terminal",
       "category": "Scripting",
       "items": ["PowerShell", "Bash"]
     },
     {
+      "icon": "monitor",
       "category": "Prise en main à distance",
       "items": ["Iperius", "Assistance Rapide", "AnyDesk"]
     }
@@ -143,8 +221,14 @@
       "period": "2018",
       "duration": "4 mois",
       "highlights": [
-        { "value": "500", "label": "postes déployés" },
-        { "value": "1000", "label": "interventions" }
+        {
+          "value": "500",
+          "label": "postes déployés"
+        },
+        {
+          "value": "1000",
+          "label": "interventions"
+        }
       ],
       "tasks": [
         "Déploiement et configuration de postes de travail (500 postes).",
@@ -215,7 +299,10 @@
     },
     "address": ["20 rue de Chavaroux Lignat", "63360 Lussat"],
     "github": [
-      { "label": "github.com/fmassol-63", "url": "https://github.com/fmassol-63" },
+      {
+        "label": "github.com/fmassol-63",
+        "url": "https://github.com/fmassol-63"
+      },
       {
         "label": "github.com/fmassol-63/zabbix_vault",
         "url": "https://github.com/fmassol-63/zabbix_vault"

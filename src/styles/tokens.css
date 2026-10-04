@@ -11,6 +11,22 @@
   --badge-bg: rgb(0 229 255 / 0.08);
   --badge-border: rgb(0 229 255 / 0.28);
   --vortex-color: #00e5ff;
+  --accent-blue: #3b82f6;
+  --accent-violet: #8b6cff;
+  --gradient: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    var(--accent-blue) 55%,
+    var(--accent-violet) 100%
+  );
+  --gradient-button: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    #38bdf8 50%,
+    var(--accent-blue) 100%
+  );
+  --success: #34d399;
+  --terminal-bg: rgb(3 8 18 / 0.85);
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:

@@ -13,6 +13,9 @@ import {
   renderPage,
   renderProfile,
   renderProject,
+  renderStats,
+  renderStrengths,
+  renderTerminal,
   renderSkills,
 } from '../../src/lib/render.js';
 
@@ -33,7 +36,7 @@ describe('escapeHtml', () => {
 });
 
 describe('renderHero', () => {
-  const html = renderHero(cv.identity, ui);
+  const html = renderHero(cv.identity, cv.terminal, ui);
 
   it('affiche la photo, le nom et le titre', () => {
     expect(html).toContain('src="/photo.webp"');
@@ -45,6 +48,51 @@ describe('renderHero', () => {
   it('propose le téléchargement du CV et le contact', () => {
     expect(html).toMatch(/href="\/cv-florian-massol\.pdf"[^>]*download/);
     expect(html).toContain('href="#contact"');
+  });
+
+  it('affiche le statut, l’accroche et le terminal', () => {
+    expect(html).toContain('class="hero__status"');
+    expect(html).toContain('class="hero__tagline"');
+    expect(html).toContain('data-terminal');
+  });
+
+  it('fonctionne sans statut, accroche ni terminal', () => {
+    const identity = { ...cv.identity, status: undefined, tagline: undefined };
+    const bare = renderHero(identity, undefined, ui);
+    expect(bare).not.toContain('hero__status');
+    expect(bare).not.toContain('data-terminal');
+    expect(bare).not.toContain('undefined');
+  });
+});
+
+describe('renderTerminal', () => {
+  it('affiche chaque commande précédée d’une invite, puis ses sorties', () => {
+    const html = renderTerminal([{ command: 'whoami', output: ['root'] }], ui);
+    expect(html).toMatch(/terminal__prompt[^>]*>\$ <\/span><span class="terminal__cmd">whoami</);
+    expect(html).toContain('<p class="terminal__line">root</p>');
+  });
+});
+
+describe('renderStats', () => {
+  const html = renderStats(cv.stats, ui);
+
+  it('affiche chaque chiffre clé avec sa valeur finale (lisible sans JS)', () => {
+    expect(html.match(/class="stat"/g)).toHaveLength(cv.stats.length);
+    expect(html).toContain('<span data-count="500">500</span>');
+    expect(html).toContain('<span class="stat__suffix"> ans</span>');
+  });
+
+  it('ne rend rien sans données', () => {
+    expect(renderStats([], ui)).toBe('');
+  });
+});
+
+describe('renderStrengths', () => {
+  it('affiche les 4 atouts avec une icône', () => {
+    const html = renderStrengths(cv.strengths, ui);
+    expect(html.match(/class="strength"/g)).toHaveLength(4);
+    expect(html.match(/class="strength__icon"><svg/g)).toHaveLength(4);
+    expect(html).toContain('Gestion de crise');
   });
 });
 
@@ -153,7 +201,9 @@ describe('renderPage', () => {
     const ids = [...html.matchAll(/<section[^>]*id="([^"]+)"/g)].map((m) => m[1]);
     expect(ids).toEqual([
       'accueil',
+      'chiffres',
       'profil',
+      'atouts',
       'competences',
       'parcours',
       'missions',

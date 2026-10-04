@@ -3,13 +3,18 @@ import cv from '../../src/data/cv.fr.json';
 import uiAll from '../../src/data/ui.json';
 import { escapeHtml, renderFooter, renderPage } from '../../src/lib/render.js';
 
-/** Toutes les chaînes du JSON, avec leur chemin pour un message d'erreur lisible. */
+/**
+ * Toutes les chaînes du JSON, avec leur chemin pour un message d'erreur lisible.
+ * Les clés `icon` sont des noms techniques d'icônes, pas du contenu affiché.
+ */
 function collectStrings(value, path = 'cv') {
   if (typeof value === 'string') return [[path, value]];
   if (Array.isArray(value))
     return value.flatMap((item, i) => collectStrings(item, `${path}[${i}]`));
   if (value && typeof value === 'object') {
-    return Object.entries(value).flatMap(([key, item]) => collectStrings(item, `${path}.${key}`));
+    return Object.entries(value)
+      .filter(([key]) => key !== 'icon')
+      .flatMap(([key, item]) => collectStrings(item, `${path}.${key}`));
   }
   return [];
 }
