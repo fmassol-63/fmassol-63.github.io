@@ -68,21 +68,36 @@
   color: var(--accent);
 }
 
-/* Carte translucide pour détacher l'accroche du fond animé. */
+/* Halo couleur du fond derrière l'accroche : efface le tourbillon sans dessiner de cadre. */
 .hero__tagline {
+  position: relative;
+  isolation: isolate;
   max-width: 620px;
-  margin: 22px auto 0;
-  padding: 16px 24px;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  background: var(--card);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
+  margin: 18px auto 0;
+  padding: 10px 20px;
   font-size: clamp(1.1rem, 2.6vw, 1.35rem);
   font-weight: 600;
   line-height: 1.45;
   color: var(--text);
+  text-shadow:
+    0 1px 12px var(--bg),
+    0 0 4px var(--bg);
+}
+
+.hero__tagline::before {
+  content: '';
+  position: absolute;
+  inset: -30px 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, var(--bg) 35%, transparent 72%);
+  pointer-events: none;
+}
+
+/* Sur grand écran, le halo peut déborder sur les côtés sans créer de défilement horizontal. */
+@media (min-width: 760px) {
+  .hero__tagline::before {
+    inset: -30px -60px;
+  }
 }
 
 .hero__actions {
