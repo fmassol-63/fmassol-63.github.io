@@ -67,8 +67,10 @@ export function renderHero(identity, terminal, ui) {
   return `
     <section id="accueil" class="hero" aria-labelledby="accueil-title">
       ${status}
-      <img class="hero__photo" src="${e(identity.photo)}" alt="${e(identity.photoAlt)}"
-        width="306" height="348" fetchpriority="high" />
+      <div class="hero__portrait">
+        <img class="hero__photo" src="${e(identity.photo)}" alt="${e(identity.photoAlt)}"
+          width="306" height="348" fetchpriority="high" />
+      </div>
       <h1 id="accueil-title" class="hero__name">${e(identity.name)}</h1>
       <p class="hero__title">${e(identity.title)}</p>
       ${tagline}

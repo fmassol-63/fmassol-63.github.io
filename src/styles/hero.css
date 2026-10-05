@@ -47,7 +47,47 @@
   }
 }
 
+/* Cadre de la photo : halo couleur de page qui efface le tourbillon derrière le visage,
+   puis anneau en dégradé qui s'estompe vers le bas comme les bords de la photo. */
+.hero__portrait {
+  position: relative;
+  isolation: isolate;
+  padding: 12px;
+}
+
+.hero__portrait::before,
+.hero__portrait::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero__portrait::before {
+  inset: -28px;
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--bg) 72%, transparent);
+}
+
+.hero__portrait::after {
+  inset: 0;
+  padding: 2px;
+  background: conic-gradient(
+    from 200deg,
+    var(--accent-violet),
+    var(--accent) 35%,
+    var(--accent-blue) 65%,
+    var(--accent-violet)
+  );
+  /* Ne garde que le bord (anneau de 2px), puis l'efface progressivement vers le bas. */
+  mask:
+    linear-gradient(#000 35%, transparent 82%) intersect,
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+
 .hero__photo {
+  display: block;
   width: clamp(140px, 18vw, 190px);
   filter: drop-shadow(0 0 28px rgb(0 229 255 / 0.3));
 }
