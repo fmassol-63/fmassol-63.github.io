@@ -189,7 +189,7 @@ describe('renderContact', () => {
     expect(html).toContain('href="tel:+33647853462"');
     expect(html).toContain('href="mailto:massolflorian@gmail.com"');
     expect(html).toContain('href="https://github.com/fmassol-63"');
-    expect(html).toContain('href="https://github.com/fmassol-63/zabbix_vault"');
+    expect(html).not.toContain('zabbix_vault');
   });
 
   it('n’affiche pas d’adresse postale sur le site public', () => {

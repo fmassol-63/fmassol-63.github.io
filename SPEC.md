@@ -42,7 +42,7 @@ Le contenu provient intégralement de `CV_admin.pdf`.
 6. **Projet** — « Déploiement d'une infrastructure hyperconvergée » : contexte (site unique, pas de redondance) + les 8 recommandations.
 7. **Formations** — frise : Bachelor ASRC (2025–2026, GFS), Logiciels métier & environnement militaire (2023–2024), BM1 Administrateur Système (2022, ETNC Rennes), Formation SIO (2015, Armée de Terre), BAC PRO Électrotechnicien (2013).
 8. **Centres d'intérêt** — Sport, Bricolage – Menuiserie, Jardinage, Jeux (console, PC, jeux de société).
-9. **Contact** — téléphone, email, LinkedIn, GitHub (profil + dépôt zabbix_vault), bouton PDF.
+9. **Contact** — téléphone, email, LinkedIn, GitHub (profil), bouton PDF.
 10. **Pied de page** — © année, nom.
 
 En-tête fixe : navigation par ancres vers chaque section, bascule FR/EN, bascule clair/sombre.
@@ -279,5 +279,4 @@ export function lerp(current, target, factor = 0.1) {
 
 ## Décisions prises
 
-- CV source : `CV_admin.pdf`  · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
-
+- CV source : `CV_admin.pdf` · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
