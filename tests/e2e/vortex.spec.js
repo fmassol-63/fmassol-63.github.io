@@ -1,8 +1,13 @@
 import { expect, test } from '@playwright/test';
 
 const angle = (page) => page.locator('#vortex').getAttribute('data-angle').then(Number);
+// WebKit mobile anime lentement en test (~13 images/s) : le retour au repos y dépasse
+// les 5 s par défaut.
+const SETTLE_TIMEOUT = 15_000;
 const waitUntilIdle = (page) =>
-  expect(page.locator('#vortex')).toHaveAttribute('data-animating', 'false');
+  expect(page.locator('#vortex')).toHaveAttribute('data-animating', 'false', {
+    timeout: SETTLE_TIMEOUT,
+  });
 
 test.describe('tourbillon', () => {
   test('reste immobile tant qu’on ne défile pas', async ({ page }) => {
@@ -20,7 +25,8 @@ test.describe('tourbillon', () => {
     await waitUntilIdle(page);
 
     await page.evaluate(() => window.scrollTo(0, 0));
-    await expect.poll(() => angle(page)).toBeCloseTo(0, 2);
+    // Une fois l'écart imperceptible, l'angle est calé exactement sur la cible.
+    await expect.poll(() => angle(page), { timeout: SETTLE_TIMEOUT }).toBe(0);
     await waitUntilIdle(page);
   });
 
