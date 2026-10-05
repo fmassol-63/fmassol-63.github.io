@@ -32,6 +32,11 @@ function downloadButton(identity, ui, modifier = '') {
   return `<a class="button ${modifier}" href="${e(identity.cv)}" download>${icon('download')}${e(ui.downloadCv)}</a>`;
 }
 
+function recommendationButton(identity, ui) {
+  if (!identity.recommendation) return '';
+  return `<a class="button button--ghost" href="${e(identity.recommendation)}" download>${icon('download')}${e(ui.downloadRecommendation)}</a>`;
+}
+
 export function renderTerminal(terminal, ui) {
   if (!terminal?.length) return '';
   const lines = list(
@@ -69,6 +74,7 @@ export function renderHero(identity, terminal, ui) {
       ${tagline}
       <div class="hero__actions">
         ${downloadButton(identity, ui)}
+        ${recommendationButton(identity, ui)}
         <a class="button button--ghost" href="#contact">${e(ui.contactMe)}</a>
       </div>
       ${renderTerminal(terminal, ui)}

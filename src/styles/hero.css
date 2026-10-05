@@ -68,9 +68,17 @@
   color: var(--accent);
 }
 
+/* Carte translucide pour détacher l'accroche du fond animé. */
 .hero__tagline {
   max-width: 620px;
-  margin: 18px auto 0;
+  margin: 22px auto 0;
+  padding: 16px 24px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
   font-size: clamp(1.1rem, 2.6vw, 1.35rem);
   font-weight: 600;
   line-height: 1.45;

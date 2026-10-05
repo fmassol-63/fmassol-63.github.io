@@ -50,6 +50,11 @@ describe('renderHero', () => {
     expect(html).toContain('href="#contact"');
   });
 
+  it('propose le téléchargement de la lettre de recommandation', () => {
+    expect(html).toMatch(/href="\/lettre-recommandation-florian-massol\.pdf"[^>]*download/);
+    expect(html).toContain('Lettre de recommandation');
+  });
+
   it('affiche le statut, l’accroche et le terminal', () => {
     expect(html).toContain('class="hero__status"');
     expect(html).toContain('class="hero__tagline"');

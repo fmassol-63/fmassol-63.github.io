@@ -12,16 +12,21 @@ test('la page charge sans erreur console', async ({ page }) => {
   expect(errors).toEqual([]);
 });
 
-test('le CV PDF est téléchargeable', async ({ page, request }) => {
-  await page.goto('/');
-  const link = page.locator('.hero a[download]');
-  const href = await link.getAttribute('href');
+for (const [label, file] of [
+  ['le CV', 'cv-florian-massol.pdf'],
+  ['la lettre de recommandation', 'lettre-recommandation-florian-massol.pdf'],
+]) {
+  test(`${label} en PDF est téléchargeable`, async ({ page, request }) => {
+    await page.goto('/');
+    const link = page.locator(`.hero a[download][href$="${file}"]`);
+    const href = await link.getAttribute('href');
 
-  const response = await request.get(href);
-  expect(response.status()).toBe(200);
-  expect(response.headers()['content-type']).toContain('application/pdf');
-  expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
-});
+    const response = await request.get(href);
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('application/pdf');
+    expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
+  });
+}
 
 test('la photo de profil se charge', async ({ page }) => {
   await page.goto('/');
