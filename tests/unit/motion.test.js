@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { countAt, easeOutCubic } from '../../src/lib/motion.js';
+import { countAt, easeOutCubic, scrollProgress } from '../../src/lib/motion.js';
 import { buildSteps } from '../../src/lib/terminal.js';
 
 describe('easeOutCubic', () => {
@@ -26,6 +26,21 @@ describe('countAt', () => {
     const values = [0.1, 0.3, 0.6, 0.9].map((p) => countAt(1000, p));
     expect(values.every(Number.isInteger)).toBe(true);
     expect([...values].sort((a, b) => a - b)).toEqual(values);
+  });
+});
+
+describe('scrollProgress', () => {
+  it('vaut 0 sous l’écran et 1 une fois la carte arrivée vers le milieu', () => {
+    expect(scrollProgress(1200, 1000)).toBe(0);
+    expect(scrollProgress(1000, 1000)).toBe(0);
+    expect(scrollProgress(550, 1000)).toBe(1);
+    expect(scrollProgress(100, 1000)).toBe(1);
+  });
+
+  it('augmente quand la carte remonte', () => {
+    const values = [900, 800, 700, 600].map((top) => scrollProgress(top, 1000));
+    expect([...values].sort((a, b) => a - b)).toEqual(values);
+    expect(values.every((v) => v > 0 && v < 1)).toBe(true);
   });
 });
 

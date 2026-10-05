@@ -88,6 +88,7 @@ describe('renderStats', () => {
     expect(html.match(/class="stat"/g)).toHaveLength(cv.stats.length);
     expect(html).toContain('<span data-count="500">500</span>');
     expect(html).toContain('<span class="stat__suffix"> ans</span>');
+    expect(html).toContain('<span class="stat__prefix">+</span><span data-count="1000">');
   });
 
   it('ne rend rien sans données', () => {

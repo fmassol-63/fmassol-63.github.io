@@ -33,16 +33,18 @@
       "label": "of IT experience"
     },
     {
+      "prefix": "+",
       "value": 500,
-      "label": "workstations deployed"
+      "label": "workstations deployed in 4 months"
     },
     {
+      "prefix": "+",
       "value": 1000,
-      "label": "repair interventions"
+      "label": "repair interventions in 4 months"
     },
     {
       "value": 3,
-      "label": "teams led"
+      "label": "teams led simultaneously"
     },
     {
       "value": 13,

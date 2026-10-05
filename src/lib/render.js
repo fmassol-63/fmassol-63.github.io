@@ -81,7 +81,9 @@ export function renderStats(stats, ui) {
     stats,
     (stat) => `
       <li class="stat">
-        <span class="stat__value"><span data-count="${e(stat.value)}">${e(stat.value)}</span>${
+        <span class="stat__value">${
+          stat.prefix ? `<span class="stat__prefix">${e(stat.prefix)}</span>` : ''
+        }<span data-count="${e(stat.value)}">${e(stat.value)}</span>${
           stat.suffix ? `<span class="stat__suffix">${e(stat.suffix)}</span>` : ''
         }</span>
         <span class="stat__label">${e(stat.label)}</span>

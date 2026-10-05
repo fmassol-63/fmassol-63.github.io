@@ -44,6 +44,10 @@
   font-variant-numeric: tabular-nums;
 }
 
+.stat__prefix {
+  font-size: 0.7em;
+}
+
 .stat__suffix {
   font-size: 0.55em;
 }

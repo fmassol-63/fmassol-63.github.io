@@ -33,16 +33,18 @@
       "label": "d’expérience en informatique"
     },
     {
+      "prefix": "+",
       "value": 500,
-      "label": "postes déployés"
+      "label": "postes déployés en 4 mois"
     },
     {
+      "prefix": "+",
       "value": 1000,
-      "label": "interventions de dépannage"
+      "label": "interventions de dépannage en 4 mois"
     },
     {
       "value": 3,
-      "label": "équipes encadrées"
+      "label": "équipes encadrées simultanément"
     },
     {
       "value": 13,
