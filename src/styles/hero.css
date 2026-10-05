@@ -21,9 +21,12 @@
   padding: 6px 14px;
   border: 1px solid rgb(52 211 153 / 0.35);
   border-radius: 999px;
-  background: rgb(52 211 153 / 0.1);
+  /* Teinte verte posée sur la couleur de page, avec un halo, pour rester lisible sur le tourbillon. */
+  background: linear-gradient(rgb(52 211 153 / 0.1), rgb(52 211 153 / 0.1)), var(--bg);
+  box-shadow: 0 0 24px 8px var(--bg);
   font-size: 0.85rem;
   color: var(--text);
+  text-shadow: 0 0 6px var(--bg);
 }
 
 .hero__status-dot {
