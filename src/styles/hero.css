@@ -108,6 +108,20 @@
   margin-top: 28px;
 }
 
+/* Comme l'accroche : fond couleur de page et halo pour rester lisible sur le tourbillon. */
+.hero__actions .button--ghost {
+  background: var(--bg);
+  text-shadow: 0 0 6px var(--bg);
+  box-shadow: 0 0 24px 8px var(--bg);
+}
+
+.hero__actions .button--ghost:hover {
+  background: var(--bg);
+  box-shadow:
+    0 0 24px 8px var(--bg),
+    0 8px 28px rgb(0 229 255 / 0.35);
+}
+
 /* ---------- Terminal ---------- */
 
 /* Le terminal reste sombre quel que soit le thème. */

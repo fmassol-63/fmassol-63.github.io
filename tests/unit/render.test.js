@@ -197,6 +197,11 @@ describe('renderContact', () => {
     expect(html).not.toContain('zabbix_vault');
   });
 
+  it('propose le CV et la lettre de recommandation en téléchargement', () => {
+    expect(html).toMatch(/href="\/cv-florian-massol\.pdf"[^>]*download/);
+    expect(html).toMatch(/href="\/lettre-recommandation-florian-massol\.pdf"[^>]*download/);
+  });
+
   it('n’affiche pas d’adresse postale sur le site public', () => {
     expect(html).not.toContain('<address>');
     expect(html).not.toContain('Chavaroux');

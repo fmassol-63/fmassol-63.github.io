@@ -264,7 +264,10 @@ export function renderContact(contact, identity, ui) {
            : ''
        }
      </ul>
-     ${downloadButton(identity, ui, 'contact__cta')}`,
+     <div class="contact__actions">
+       ${downloadButton(identity, ui)}
+       ${recommendationButton(identity, ui)}
+     </div>`,
     { iconName: 'email' },
   );
 }

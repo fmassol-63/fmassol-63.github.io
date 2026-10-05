@@ -393,3 +393,9 @@ h3 {
 address {
   font-style: normal;
 }
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
