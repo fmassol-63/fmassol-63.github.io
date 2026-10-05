@@ -48,12 +48,12 @@
 }
 
 /* Cadre de la photo : halo couleur de page qui efface le tourbillon derrière le visage,
-   et anneaux HUD qui tournent avec le scroll (--vortex-angle, posé par vortex.js),
-   estompés vers le bas comme les bords de la photo. */
+   et anneaux HUD qui suivent son ovale. Leurs traits glissent avec le scroll
+   (--vortex-angle, posé par vortex.js) et s'estompent vers le bas comme la photo. */
 .hero__portrait {
   position: relative;
   isolation: isolate;
-  padding: 18px;
+  margin-block: 12px;
 }
 
 .hero__portrait::before {
@@ -66,26 +66,27 @@
   pointer-events: none;
 }
 
+/* viewBox de 330 × 372 centré sur la photo de 306 × 348 : même échelle qu'elle. */
 .hero__rings {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 100%;
-  aspect-ratio: 1;
+  width: calc(100% * 330 / 306);
+  height: calc(100% * 372 / 348);
   translate: -50% -50%;
-  overflow: visible;
   pointer-events: none;
   mask: linear-gradient(#000 45%, transparent 95%);
 }
 
-.hero__ring circle {
-  fill: none;
-  stroke: var(--vortex-color);
-}
-
 .hero__ring {
   --speed: 1;
-  rotate: calc(var(--vortex-angle, 0) * var(--speed) * 1rad);
+}
+
+.hero__ring ellipse {
+  fill: none;
+  stroke: var(--vortex-color);
+  /* pathLength = 360 : un radian de tourbillon fait glisser les traits de 57,3 unités. */
+  stroke-dashoffset: calc(var(--vortex-angle, 0) * var(--speed) * 57.3px);
 }
 
 .hero__ring--ticks {
@@ -103,14 +104,13 @@
   opacity: 0.8;
 }
 
-.hero__ring--dots circle {
+.hero__ring--dots ellipse {
   stroke: var(--accent-violet);
   stroke-linecap: round;
 }
 
-.hero__ring .hero__node {
-  fill: var(--vortex-color);
-  stroke: none;
+.hero__ring .hero__nodes {
+  stroke-linecap: round;
 }
 
 .hero__photo {

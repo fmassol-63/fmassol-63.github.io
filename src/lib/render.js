@@ -59,20 +59,21 @@ export function renderTerminal(terminal, ui) {
     </div>`;
 }
 
-// Anneaux HUD autour de la photo, tournés par le scroll comme le tourbillon (voir hero.css).
+// Anneaux HUD autour de la photo, en ellipses qui épousent son ovale : unités = pixels
+// de la photo (306 × 348, ovale visible d'environ 280 × 320). Leurs traits glissent avec
+// le scroll, au rythme du tourbillon (voir hero.css).
 const PORTRAIT_RINGS = `
-  <svg class="hero__rings" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
+  <svg class="hero__rings" viewBox="-165 -186 330 372" aria-hidden="true" focusable="false">
     <g class="hero__ring hero__ring--ticks">
-      <circle r="96" pathLength="360" stroke-dasharray="0.6 5.4" stroke-width="4" />
-      <circle r="96" pathLength="360" stroke-dasharray="0.8 29.2" stroke-width="8" />
+      <ellipse rx="155" ry="176" pathLength="360" stroke-dasharray="0.6 5.4" stroke-width="7" />
+      <ellipse rx="155" ry="176" pathLength="360" stroke-dasharray="0.8 29.2" stroke-width="13" />
     </g>
     <g class="hero__ring hero__ring--arcs">
-      <circle r="89" pathLength="360" stroke-dasharray="64 14 26 10 92 18 48 12 70 16" stroke-width="2" />
-      <circle class="hero__node" cx="89" cy="0" r="2.6" />
-      <circle class="hero__node" cx="-62.9" cy="62.9" r="2.6" />
+      <ellipse rx="147" ry="168" pathLength="360" stroke-dasharray="64 14 26 10 92 18 48 12 70 16" stroke-width="3.5" />
+      <ellipse class="hero__nodes" rx="147" ry="168" pathLength="360" stroke-dasharray="0 120" stroke-width="8" />
     </g>
     <g class="hero__ring hero__ring--dots">
-      <circle r="83" pathLength="360" stroke-dasharray="0.1 3" stroke-width="1.6" />
+      <ellipse rx="140" ry="161" pathLength="360" stroke-dasharray="0.1 3" stroke-width="3" />
     </g>
   </svg>`;
 
