@@ -225,18 +225,18 @@
       "duration": "4 months",
       "highlights": [
         {
-          "value": "500",
+          "value": "+500",
           "label": "workstations deployed"
         },
         {
-          "value": "1000",
+          "value": "+1000",
           "label": "interventions"
         }
       ],
       "tasks": [
-        "Deployment and configuration of workstations (500 units).",
+        "Deployment and configuration of workstations (over 500 units).",
         "Network cabling.",
-        "Computer repair and troubleshooting (1,000 interventions)."
+        "Computer repair and troubleshooting (over 1,000 interventions)."
       ]
     }
   ],

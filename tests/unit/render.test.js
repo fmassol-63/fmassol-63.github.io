@@ -153,8 +153,8 @@ describe('renderMissions', () => {
     const html = renderMissions(cv.missions, ui);
     expect(html.match(/class="mission"/g)).toHaveLength(2);
     expect(html).toContain('Migration de Windows Server 2012 vers 2016.');
-    expect(html).toMatch(/class="mission__stat-value">500</);
-    expect(html).toMatch(/class="mission__stat-value">1000</);
+    expect(html).toContain('class="mission__stat-value">+500<');
+    expect(html).toContain('class="mission__stat-value">+1000<');
   });
 
   it('supporte une mission sans chiffres clés', () => {
