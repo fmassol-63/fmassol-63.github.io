@@ -24,6 +24,15 @@ test.describe('tourbillon', () => {
     await waitUntilIdle(page);
   });
 
+  test('fait tourner les anneaux de la photo avec le scroll', async ({ page }) => {
+    await page.goto('/');
+    const ring = page.locator('.hero__ring--arcs');
+    await expect(ring).toHaveCSS('rotate', '0deg');
+    await page.evaluate(() => window.scrollTo(0, 600));
+    await waitUntilIdle(page);
+    await expect(ring).not.toHaveCSS('rotate', '0deg');
+  });
+
   test.describe('avec « réduire les animations »', () => {
     test.use({ reducedMotion: 'reduce' });
 
@@ -32,6 +41,7 @@ test.describe('tourbillon', () => {
       await page.evaluate(() => window.scrollTo(0, 1200));
       await page.waitForTimeout(500);
       expect(await angle(page)).toBe(0);
+      await expect(page.locator('.hero__ring--arcs')).toHaveCSS('rotate', '0deg');
     });
   });
 });

@@ -59,6 +59,23 @@ export function renderTerminal(terminal, ui) {
     </div>`;
 }
 
+// Anneaux HUD autour de la photo, tournés par le scroll comme le tourbillon (voir hero.css).
+const PORTRAIT_RINGS = `
+  <svg class="hero__rings" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
+    <g class="hero__ring hero__ring--ticks">
+      <circle r="96" pathLength="360" stroke-dasharray="0.6 5.4" stroke-width="4" />
+      <circle r="96" pathLength="360" stroke-dasharray="0.8 29.2" stroke-width="8" />
+    </g>
+    <g class="hero__ring hero__ring--arcs">
+      <circle r="89" pathLength="360" stroke-dasharray="64 14 26 10 92 18 48 12 70 16" stroke-width="2" />
+      <circle class="hero__node" cx="89" cy="0" r="2.6" />
+      <circle class="hero__node" cx="-62.9" cy="62.9" r="2.6" />
+    </g>
+    <g class="hero__ring hero__ring--dots">
+      <circle r="83" pathLength="360" stroke-dasharray="0.1 3" stroke-width="1.6" />
+    </g>
+  </svg>`;
+
 export function renderHero(identity, terminal, ui) {
   const status = identity.status
     ? `<p class="hero__status"><span class="hero__status-dot" aria-hidden="true"></span>${e(identity.status)}</p>`
@@ -68,6 +85,7 @@ export function renderHero(identity, terminal, ui) {
     <section id="accueil" class="hero" aria-labelledby="accueil-title">
       ${status}
       <div class="hero__portrait">
+        ${PORTRAIT_RINGS}
         <img class="hero__photo" src="${e(identity.photo)}" alt="${e(identity.photoAlt)}"
           width="306" height="348" fetchpriority="high" />
       </div>

@@ -56,6 +56,8 @@ export function initVortex(canvas) {
     });
     ctx.globalAlpha = 1;
     canvas.dataset.angle = current.toFixed(4);
+    // Partagé avec le CSS : les anneaux autour de la photo tournent au même rythme.
+    document.documentElement.style.setProperty('--vortex-angle', current.toFixed(4));
   }
 
   function setAnimating(animating) {

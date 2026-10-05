@@ -48,42 +48,69 @@
 }
 
 /* Cadre de la photo : halo couleur de page qui efface le tourbillon derrière le visage,
-   puis anneau en dégradé qui s'estompe vers le bas comme les bords de la photo. */
+   et anneaux HUD qui tournent avec le scroll (--vortex-angle, posé par vortex.js),
+   estompés vers le bas comme les bords de la photo. */
 .hero__portrait {
   position: relative;
   isolation: isolate;
-  padding: 12px;
-}
-
-.hero__portrait::before,
-.hero__portrait::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
+  padding: 18px;
 }
 
 .hero__portrait::before {
+  content: '';
+  position: absolute;
   inset: -28px;
   z-index: -1;
+  border-radius: 50%;
   background: radial-gradient(closest-side, var(--bg) 72%, transparent);
+  pointer-events: none;
 }
 
-.hero__portrait::after {
-  inset: 0;
-  padding: 2px;
-  background: conic-gradient(
-    from 200deg,
-    var(--accent-violet),
-    var(--accent) 35%,
-    var(--accent-blue) 65%,
-    var(--accent-violet)
-  );
-  /* Ne garde que le bord (anneau de 2px), puis l'efface progressivement vers le bas. */
-  mask:
-    linear-gradient(#000 35%, transparent 82%) intersect,
-    linear-gradient(#000 0 0) content-box exclude,
-    linear-gradient(#000 0 0);
+.hero__rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  overflow: visible;
+  pointer-events: none;
+  mask: linear-gradient(#000 45%, transparent 95%);
+}
+
+.hero__ring circle {
+  fill: none;
+  stroke: var(--vortex-color);
+}
+
+.hero__ring {
+  --speed: 1;
+  rotate: calc(var(--vortex-angle, 0) * var(--speed) * 1rad);
+}
+
+.hero__ring--ticks {
+  --speed: 0.8;
+  opacity: 0.55;
+}
+
+.hero__ring--arcs {
+  --speed: -1.4;
+  opacity: 0.9;
+}
+
+.hero__ring--dots {
+  --speed: 2;
+  opacity: 0.8;
+}
+
+.hero__ring--dots circle {
+  stroke: var(--accent-violet);
+  stroke-linecap: round;
+}
+
+.hero__ring .hero__node {
+  fill: var(--vortex-color);
+  stroke: none;
 }
 
 .hero__photo {
