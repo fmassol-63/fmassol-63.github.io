@@ -90,6 +90,13 @@
     background-color 0.2s;
 }
 
+/* Juste au-dessus du menu mobile, liens resserrés pour que la navigation tienne sur une ligne. */
+@media (min-width: 900px) and (max-width: 999px) {
+  .header__link {
+    padding-inline: 8px;
+  }
+}
+
 .header__link:hover {
   background: var(--badge-bg);
   color: var(--text);

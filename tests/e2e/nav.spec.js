@@ -2,7 +2,15 @@ import { expect, test } from '@playwright/test';
 
 test.use({ locale: 'fr-FR' });
 
-const sections = ['profil', 'competences', 'parcours', 'missions', 'formation', 'contact'];
+const sections = [
+  'profil',
+  'competences',
+  'parcours',
+  'missions',
+  'formation',
+  'diplomes',
+  'contact',
+];
 
 /** Position haute de la carte une fois le défilement et l'animation terminés. */
 async function settledCardTop(page, id) {

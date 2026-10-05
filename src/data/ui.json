@@ -20,6 +20,7 @@
       "parcours": "Parcours",
       "missions": "Missions",
       "formation": "Formation",
+      "diplomes": "Diplômes",
       "contact": "Contact"
     },
     "navLabel": "Navigation principale",
@@ -62,6 +63,7 @@
       "parcours": "Experience",
       "missions": "Missions",
       "formation": "Education",
+      "diplomes": "Diplomas",
       "contact": "Contact"
     },
     "navLabel": "Main navigation",
