@@ -245,6 +245,11 @@
       "period": "Tous les 1 à 2 ans",
       "duration": "2 mois",
       "tasks": ["Portant sur la capacité à être déployé en situation réelle en mission."]
+    },
+    {
+      "title": "Chef armurier",
+      "duration": "3 ans",
+      "tasks": ["Gestion du stock, sans aucune erreur possible."]
     }
   ],
   "project": {

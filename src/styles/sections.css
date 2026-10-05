@@ -292,6 +292,11 @@ h3 {
   background: var(--badge-bg);
 }
 
+/* Mission sans dates : même écart sous le titre que la ligne de dates. */
+.mission__title + .tasks {
+  margin-top: 8px;
+}
+
 .mission__stats {
   display: flex;
   flex-wrap: wrap;

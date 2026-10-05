@@ -205,10 +205,11 @@ export function renderMissions(missions, ui) {
         )}</dl>`
       : '';
     const role = mission.role ? ` <span class="timeline__role">— ${e(mission.role)}</span>` : '';
+    const meta = timelineMeta([mission.period, mission.duration]);
     return `
       <article class="mission">
         <h3 class="mission__title">${e(mission.title)}${role}</h3>
-        <p class="timeline__meta">${timelineMeta([mission.period, mission.duration])}</p>
+        ${meta ? `<p class="timeline__meta">${meta}</p>` : ''}
         ${stats}
         ${tasksList(mission.tasks)}
       </article>`;

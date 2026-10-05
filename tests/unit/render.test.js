@@ -150,9 +150,9 @@ describe('renderExperience', () => {
 });
 
 describe('renderMissions', () => {
-  it('affiche les trois missions et les chiffres clés', () => {
+  it('affiche les quatre missions et les chiffres clés', () => {
     const html = renderMissions(cv.missions, ui);
-    expect(html.match(/class="mission"/g)).toHaveLength(3);
+    expect(html.match(/class="mission"/g)).toHaveLength(4);
     expect(html).toContain('Migration de Windows Server 2012 vers 2016.');
     expect(html).toContain('class="mission__stat-value">+500<');
     expect(html).toContain('class="mission__stat-value">+1000<');
@@ -161,6 +161,11 @@ describe('renderMissions', () => {
   it('supporte une mission sans chiffres clés', () => {
     const html = renderMissions([{ title: 'X', tasks: [] }], ui);
     expect(html).not.toContain('mission__stats');
+  });
+
+  it('n’affiche pas de ligne de dates vide', () => {
+    const html = renderMissions([{ title: 'X', tasks: ['Y'] }], ui);
+    expect(html).not.toContain('timeline__meta');
   });
 });
 

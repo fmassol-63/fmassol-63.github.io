@@ -245,6 +245,11 @@
       "period": "Every 1 to 2 years",
       "duration": "2 months",
       "tasks": ["Focused on the ability to be deployed in real conditions on a mission."]
+    },
+    {
+      "title": "Head armourer",
+      "duration": "3 years",
+      "tasks": ["Inventory management with zero margin for error."]
     }
   ],
   "project": {
