@@ -286,6 +286,16 @@
       "place": "Lycée Maréchal Soult, Saint-Amans-Soult"
     }
   ],
+  "certifications": [
+    {
+      "title": "Titre Administrateur d’infrastructures sécurisées",
+      "file": "/titre-administrateur-infrastructures-securisees-florian-massol.pdf"
+    },
+    {
+      "title": "Certification Hyper-V",
+      "file": "/certification-hyper-v-florian-massol.pdf"
+    }
+  ],
   "interests": [
     "Sport",
     "Bricolage – Menuiserie",

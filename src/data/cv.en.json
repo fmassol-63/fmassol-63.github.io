@@ -286,6 +286,16 @@
       "place": "Lycée Maréchal Soult, Saint-Amans-Soult"
     }
   ],
+  "certifications": [
+    {
+      "title": "Secure Infrastructure Administrator diploma (French)",
+      "file": "/titre-administrateur-infrastructures-securisees-florian-massol.pdf"
+    },
+    {
+      "title": "Hyper-V certification",
+      "file": "/certification-hyper-v-florian-massol.pdf"
+    }
+  ],
   "interests": ["Sport", "DIY – Woodworking", "Gardening", "Games (console, PC, board games)"],
   "contact": {
     "phone": "06 47 85 34 62",

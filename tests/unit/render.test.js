@@ -3,6 +3,7 @@ import cv from '../../src/data/cv.fr.json';
 import uiAll from '../../src/data/ui.json';
 import {
   escapeHtml,
+  renderCertifications,
   renderContact,
   renderEducation,
   renderExperience,
@@ -180,6 +181,16 @@ describe('renderEducation', () => {
   });
 });
 
+describe('renderCertifications', () => {
+  it('propose le titre et la certification Hyper-V en téléchargement', () => {
+    const html = renderCertifications(cv.certifications, ui);
+    expect(html).toMatch(
+      /href="\/titre-administrateur-infrastructures-securisees-florian-massol\.pdf"[^>]*download/,
+    );
+    expect(html).toMatch(/href="\/certification-hyper-v-florian-massol\.pdf"[^>]*download/);
+  });
+});
+
 describe('renderInterests', () => {
   it('affiche les centres d’intérêt', () => {
     const html = renderInterests(cv.interests, ui);
@@ -239,6 +250,7 @@ describe('renderPage', () => {
       'missions',
       'projet',
       'formation',
+      'diplomes',
       'interets',
       'contact',
     ]);

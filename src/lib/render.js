@@ -226,12 +226,30 @@ export function renderEducation(education, ui) {
   });
 }
 
+export function renderCertifications(certifications, ui) {
+  if (!certifications?.length) return '';
+  const links = list(
+    certifications,
+    (item) =>
+      `<a class="button button--ghost" href="${e(item.file)}" download>${icon('download')}${e(item.title)}</a>`,
+  );
+  return section(
+    'diplomes',
+    ui.sections.certifications,
+    `<div class="certifications">${links}</div>`,
+    {
+      modifier: 'is-right',
+      iconName: 'award',
+    },
+  );
+}
+
 export function renderInterests(interests, ui) {
   return section(
     'interets',
     ui.sections.interests,
     `<ul class="badges badges--large">${list(interests, (item) => `<li class="badge">${e(item)}</li>`)}</ul>`,
-    { modifier: 'is-right', iconName: 'heart' },
+    { modifier: 'is-left', iconName: 'heart' },
   );
 }
 
@@ -315,6 +333,7 @@ export function renderPage(cv, ui) {
     renderMissions(cv.missions, ui),
     renderProject(cv.project, ui),
     renderEducation(cv.education, ui),
+    renderCertifications(cv.certifications, ui),
     renderInterests(cv.interests, ui),
     renderContact(cv.contact, cv.identity, ui),
   ].join('');

@@ -10,6 +10,7 @@
       "missions": "Missions",
       "project": "Projet d’études",
       "education": "Formation",
+      "certifications": "Diplôme et certification",
       "interests": "Centres d’intérêt",
       "contact": "Contact"
     },
@@ -51,6 +52,7 @@
       "missions": "Missions",
       "project": "Study project",
       "education": "Education",
+      "certifications": "Diploma and certification",
       "interests": "Interests",
       "contact": "Contact"
     },

@@ -394,6 +394,7 @@ address {
   font-style: normal;
 }
 
+.certifications,
 .contact__actions {
   display: flex;
   flex-wrap: wrap;
