@@ -60,7 +60,7 @@
     {
       "icon": "zap",
       "title": "Gestion de crise",
-      "text": "Habitué à garder les systèmes opérationnels sous pression, en environnement militaire et en mission à l’étranger (Estonie)."
+      "text": "Habitué à garder les systèmes opérationnels sous pression, en environnement militaire et en mission à l’étranger."
     },
     {
       "icon": "users",
@@ -238,6 +238,13 @@
         "Câblage réseau.",
         "Réparation et dépannage d’ordinateurs."
       ]
+    },
+    {
+      "title": "Exercice",
+      "role": "Administrateur système",
+      "period": "Tous les 1 à 2 ans",
+      "duration": "2 mois",
+      "tasks": ["Portant sur la capacité à être déployé en situation réelle en mission."]
     }
   ],
   "project": {

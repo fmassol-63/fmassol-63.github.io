@@ -60,7 +60,7 @@
     {
       "icon": "zap",
       "title": "Crisis management",
-      "text": "Used to keeping systems running under pressure, in military environments and on overseas deployment (Estonia)."
+      "text": "Used to keeping systems running under pressure, in military environments and on overseas deployment."
     },
     {
       "icon": "users",
@@ -238,6 +238,13 @@
         "Network cabling.",
         "Computer repair and troubleshooting."
       ]
+    },
+    {
+      "title": "Exercise",
+      "role": "System Administrator",
+      "period": "Every 1 to 2 years",
+      "duration": "2 months",
+      "tasks": ["Focused on the ability to be deployed in real conditions on a mission."]
     }
   ],
   "project": {

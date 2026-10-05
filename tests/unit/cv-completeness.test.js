@@ -36,7 +36,7 @@ describe.each([
   it('contient toutes les sections du CV', () => {
     expect(cv.skills).toHaveLength(13);
     expect(cv.experience).toHaveLength(2);
-    expect(cv.missions).toHaveLength(2);
+    expect(cv.missions).toHaveLength(3);
     expect(cv.project.recommendations).toHaveLength(8);
     expect(cv.education).toHaveLength(5);
     expect(cv.interests).toHaveLength(4);
