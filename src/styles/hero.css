@@ -131,17 +131,36 @@
   color: transparent;
 }
 
-.hero__title {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: clamp(0.95rem, 2.4vw, 1.25rem);
-  color: var(--accent);
-}
-
-/* Halo couleur du fond derrière l'accroche : efface le tourbillon sans dessiner de cadre. */
+/* Titre et accroche : halo couleur du fond derrière le texte, qui efface le tourbillon
+   sans dessiner de cadre. */
+.hero__title,
 .hero__tagline {
   position: relative;
   isolation: isolate;
+  text-shadow:
+    0 1px 12px var(--bg),
+    0 0 4px var(--bg);
+}
+
+.hero__title {
+  margin: 0;
+  padding: 4px 16px;
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hero__title::before {
+  content: '';
+  position: absolute;
+  inset: -8px 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, var(--bg) 45%, transparent 75%);
+  pointer-events: none;
+}
+
+.hero__tagline {
   max-width: 620px;
   margin: 18px auto 0;
   padding: 10px 20px;
@@ -149,9 +168,6 @@
   font-weight: 600;
   line-height: 1.45;
   color: var(--text);
-  text-shadow:
-    0 1px 12px var(--bg),
-    0 0 4px var(--bg);
 }
 
 .hero__tagline::before {
@@ -163,8 +179,12 @@
   pointer-events: none;
 }
 
-/* Sur grand écran, le halo peut déborder sur les côtés sans créer de défilement horizontal. */
+/* Sur grand écran, les halos peuvent déborder sur les côtés sans créer de défilement horizontal. */
 @media (min-width: 760px) {
+  .hero__title::before {
+    inset: -8px -40px;
+  }
+
   .hero__tagline::before {
     inset: -30px -60px;
   }
