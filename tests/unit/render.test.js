@@ -17,6 +17,7 @@ import {
   renderStats,
   renderStrengths,
   renderFocus,
+  renderJourney,
   renderSkills,
 } from '../../src/lib/render.js';
 
@@ -83,6 +84,25 @@ describe('renderFocus', () => {
 
   it('nomme la liste pour les lecteurs d’écran', () => {
     expect(html).toContain('aria-label="Domaines d’expertise"');
+  });
+});
+
+describe('renderJourney', () => {
+  const html = renderJourney(cv.journey, ui);
+
+  it('affiche chaque étape dans l’ordre, avec son année', () => {
+    expect(html.match(/class="journey__step/g)).toHaveLength(cv.journey.length);
+    expect(html.indexOf('2015')).toBeLessThan(html.indexOf('2026'));
+    expect(html).toContain('<ol class="journey__list">');
+  });
+
+  it('met en avant l’étape en cours', () => {
+    expect(html.match(/journey__step--current/g)).toHaveLength(1);
+    expect(html).toContain('aria-label="Parcours en bref"');
+  });
+
+  it('ne rend rien sans étapes', () => {
+    expect(renderJourney(undefined, ui)).toBe('');
   });
 });
 

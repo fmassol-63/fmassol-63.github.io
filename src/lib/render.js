@@ -99,6 +99,23 @@ export function renderHero(identity, focus, ui) {
     </section>`;
 }
 
+export function renderJourney(journey, ui) {
+  if (!journey?.length) return '';
+  const steps = list(
+    journey,
+    (step) => `
+      <li class="journey__step${step.current ? ' journey__step--current' : ''}">
+        <span class="journey__year">${e(step.year)}</span>
+        <span class="journey__dot" aria-hidden="true"></span>
+        <span class="journey__label">${e(step.label)}</span>
+      </li>`,
+  );
+  return `
+    <section class="journey" aria-label="${e(ui.journeyLabel)}">
+      <ol class="journey__list">${steps}</ol>
+    </section>`;
+}
+
 export function renderStats(stats, ui) {
   if (!stats?.length) return '';
   const items = list(
@@ -344,6 +361,7 @@ export function renderFooter(identity, ui, year = new Date().getFullYear()) {
 export function renderPage(cv, ui) {
   return [
     renderHero(cv.identity, cv.focus, ui),
+    renderJourney(cv.journey, ui),
     renderStats(cv.stats, ui),
     renderProfile(cv.profile, ui),
     renderStrengths(cv.strengths, ui),

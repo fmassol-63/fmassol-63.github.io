@@ -13,7 +13,7 @@
     {
       "icon": "layers",
       "title": "Virtualisation",
-      "tools": ["Hyper-V", "Cluster HCI", "Proxmox"]
+      "tools": ["Hyper-V", "Cluster HCI", "Proxmox", "Docker"]
     },
     {
       "icon": "server",
@@ -34,6 +34,33 @@
       "icon": "lock",
       "title": "Sécurité",
       "tools": ["SIEM", "Pentest"]
+    }
+  ],
+  "journey": [
+    {
+      "year": "2015",
+      "label": "Armée de Terre"
+    },
+    {
+      "year": "2018",
+      "label": "Mission GAO"
+    },
+    {
+      "year": "2022",
+      "label": "BM1 Administrateur Système"
+    },
+    {
+      "year": "2023",
+      "label": "Mission Estonie"
+    },
+    {
+      "year": "2025",
+      "label": "Alternance et Bachelor"
+    },
+    {
+      "year": "2026",
+      "label": "Disponible",
+      "current": true
     }
   ],
   "stats": [

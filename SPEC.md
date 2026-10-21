@@ -55,6 +55,7 @@ Objectif : rendre le site moins neutre **sans inventer de faits**. Les textes aj
 - **Accueil** :
   - badge de statut, accroche d'une phrase ;
   - **domaines d’expertise** : cinq tuiles (icône, domaine, outils phares) sous les boutons.
+  - **parcours en bref** : frise des grandes étapes (2015 → « Disponible ») entre les tuiles et les chiffres clés.
   - Sans animation (reduced-motion) : texte affiché d'un coup. Le texte complet est toujours présent dans le HTML.
 - **Bandeau de chiffres clés** sous l'accueil : 11 ans d’expérience, +500 postes déployés en 4 mois, +1000 interventions de dépannage en 4 mois, 3 équipes encadrées simultanément, 13 domaines de compétences. Les compteurs montent au rythme du scroll et atteignent leur valeur quand la carte arrive vers le milieu de l’écran (déjà visibles au chargement : ils comptent dans le temps).
 - **Section « Ce que j'apporte »** (après Profil) : 4 atouts déduits du CV (gestion de crise, encadrement et formation, continuité d'activité, sécurité).
