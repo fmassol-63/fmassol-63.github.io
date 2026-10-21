@@ -2,15 +2,14 @@
 
 /* ---------- Hero ---------- */
 
+/* Hauteur de son contenu, sans marge en bas : la carte « Ce que je recherche » est à égale
+   distance des tuiles et des chiffres clés, quelle que soit la hauteur de l'écran. */
 .hero {
-  min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 88px 0 48px;
+  padding: 88px 0 0;
 }
 
 .hero__status {

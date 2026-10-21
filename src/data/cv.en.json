@@ -116,7 +116,7 @@
     {
       "icon": "layers",
       "category": "Virtualization",
-      "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox"]
+      "items": ["Hyper-V", "Cluster HCI", "vCenter", "ESXi", "Proxmox", "Docker"]
     },
     {
       "icon": "server",
@@ -200,7 +200,7 @@
     {
       "icon": "box",
       "category": "Other",
-      "items": ["Docker", "Vault", "HAproxy", "Git"]
+      "items": ["Vault", "HAproxy", "Git"]
     },
     {
       "icon": "terminal",
