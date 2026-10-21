@@ -37,26 +37,23 @@ function recommendationButton(identity, ui) {
   return `<a class="button button--ghost" href="${e(identity.recommendation)}" download>${icon('download')}${e(ui.downloadRecommendation)}</a>`;
 }
 
-export function renderTerminal(terminal, ui) {
-  if (!terminal?.length) return '';
-  const lines = list(
-    terminal,
-    (entry) => `
-      <p class="terminal__line terminal__line--command"><span class="terminal__prompt" aria-hidden="true">$ </span><span class="terminal__cmd">${e(entry.command)}</span></p>
-      ${list(entry.output, (line) => `<p class="terminal__line">${e(line)}</p>`)}`,
-  );
-  // Curseur placé dans la dernière ligne : seul après elle, il occuperait une ligne
-  // de plus, qui disparaîtrait au début de la frappe (décalage de mise en page).
-  const cursor = '<span class="terminal__cursor" aria-hidden="true"></span>';
-  const end = lines.lastIndexOf('</p>');
-  return `
-    <div class="terminal" data-terminal>
-      <div class="terminal__bar" aria-hidden="true">
-        <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
-        <span class="terminal__name">${e(ui.terminalTitle)}</span>
-      </div>
-      <div class="terminal__body">${lines.slice(0, end)}${cursor}${lines.slice(end)}</div>
-    </div>`;
+// Espace insécable avant le point : une ligne ne commence jamais par « · ».
+const TOOL_SEPARATOR = '\u00a0· ';
+
+export function renderFocus(focus, ui) {
+  if (!focus?.length) return '';
+  const items = list(focus, (area) => {
+    const tools = area.tools
+      .map((tool) => `<span class="focus__tool">${e(tool)}</span>`)
+      .join(TOOL_SEPARATOR);
+    return `
+      <li class="focus__item">
+        <span class="focus__icon">${icon(area.icon, 22)}</span>
+        <span class="focus__title">${e(area.title)}</span>
+        <span class="focus__text">${tools}</span>
+      </li>`;
+  });
+  return `<ul class="focus" aria-label="${e(ui.focusLabel)}">${items}</ul>`;
 }
 
 // Anneaux HUD autour de la photo, en ellipses qui épousent son ovale : unités = pixels
@@ -77,7 +74,7 @@ const PORTRAIT_RINGS = `
     </g>
   </svg>`;
 
-export function renderHero(identity, terminal, ui) {
+export function renderHero(identity, focus, ui) {
   const status = identity.status
     ? `<p class="hero__status"><span class="hero__status-dot" aria-hidden="true"></span>${e(identity.status)}</p>`
     : '';
@@ -98,7 +95,7 @@ export function renderHero(identity, terminal, ui) {
         ${recommendationButton(identity, ui)}
         <a class="button button--ghost" href="#contact">${e(ui.contactMe)}</a>
       </div>
-      ${renderTerminal(terminal, ui)}
+      ${renderFocus(focus, ui)}
     </section>`;
 }
 
@@ -346,7 +343,7 @@ export function renderFooter(identity, ui, year = new Date().getFullYear()) {
 
 export function renderPage(cv, ui) {
   return [
-    renderHero(cv.identity, cv.terminal, ui),
+    renderHero(cv.identity, cv.focus, ui),
     renderStats(cv.stats, ui),
     renderProfile(cv.profile, ui),
     renderStrengths(cv.strengths, ui),

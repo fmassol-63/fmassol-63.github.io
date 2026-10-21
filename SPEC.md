@@ -54,7 +54,7 @@ Objectif : rendre le site moins neutre **sans inventer de faits**. Les textes aj
 - **Titres des cartes** sans préfixe `~/`, accompagnés d'une icône.
 - **Accueil** :
   - badge de statut, accroche d'une phrase ;
-  - **terminal animé** qui « tape » des commandes (`whoami`, `systemctl status`, `ls competences/`) dont les sorties reprennent le CV.
+  - **domaines d’expertise** : cinq tuiles (icône, domaine, outils phares) sous les boutons.
   - Sans animation (reduced-motion) : texte affiché d'un coup. Le texte complet est toujours présent dans le HTML.
 - **Bandeau de chiffres clés** sous l'accueil : 11 ans d’expérience, +500 postes déployés en 4 mois, +1000 interventions de dépannage en 4 mois, 3 équipes encadrées simultanément, 13 domaines de compétences. Les compteurs montent au rythme du scroll et atteignent leur valeur quand la carte arrive vers le milieu de l’écran (déjà visibles au chargement : ils comptent dans le temps).
 - **Section « Ce que j'apporte »** (après Profil) : 4 atouts déduits du CV (gestion de crise, encadrement et formation, continuité d'activité, sécurité).
@@ -125,7 +125,7 @@ src/
     main.css             → Point d’entrée : importe les fichiers ci-dessous dans l’ordre
     base.css             → Remise à zéro, typographie, canvas, pied de page
     header.css           → En-tête, navigation, menu mobile
-    hero.css             → Accueil et terminal animé
+    hero.css             → Accueil et domaines d’expertise
     components.css       → Boutons, sections, cartes
     motion.css           → Apparition au scroll
     sections.css         → Contenu des sections (chiffres, compétences, frises…)

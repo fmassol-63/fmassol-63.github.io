@@ -26,7 +26,6 @@
     var(--accent-blue) 100%
   );
   --success: #34d399;
-  --terminal-bg: rgb(3 8 18 / 0.85);
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:

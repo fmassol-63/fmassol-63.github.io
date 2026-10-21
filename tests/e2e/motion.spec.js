@@ -16,22 +16,6 @@ test.describe('animations', () => {
     await expect(page.locator('[data-count="1000"]')).toHaveText('1000', { timeout: 5000 });
   });
 
-  test('la frappe du terminal ne change pas la hauteur de la page', async ({ page }) => {
-    await page.goto('/');
-    const height = () => page.evaluate(() => document.documentElement.scrollHeight);
-    const before = await height();
-    await expect(page.locator('[data-terminal]')).toHaveClass(/is-typing|is-done/);
-    await page.waitForTimeout(1500);
-    expect(await height()).toBe(before);
-  });
-
-  test('le terminal finit de taper toutes les commandes', async ({ page }) => {
-    await page.goto('/');
-    const terminal = page.locator('[data-terminal]');
-    await expect(terminal).toHaveClass(/is-done/, { timeout: 15000 });
-    await expect(terminal.locator('.terminal__cmd').first()).toHaveText('whoami');
-  });
-
   test.describe('avec « réduire les animations »', () => {
     test.use({ reducedMotion: 'reduce' });
 
@@ -40,14 +24,9 @@ test.describe('animations', () => {
       // État lu une seule fois, sans attendre : une animation qui finirait plus tard doit échouer.
       const state = await page.evaluate(() => ({
         motionReady: document.documentElement.classList.contains('motion-ready'),
-        terminalClasses: document.querySelector('[data-terminal]').className,
-        lastCommand: [...document.querySelectorAll('.terminal__cmd')].at(-1).textContent,
         counter: document.querySelector('[data-count="500"]').textContent,
       }));
       expect(state.motionReady).toBe(false);
-      expect(state.terminalClasses).toContain('is-done');
-      expect(state.terminalClasses).not.toContain('is-typing');
-      expect(state.lastCommand).toBe('ls ~/competences');
       expect(state.counter).toBe('500');
     });
   });

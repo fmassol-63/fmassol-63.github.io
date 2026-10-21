@@ -5,7 +5,6 @@ import uiAll from './data/ui.json';
 import { detectLang, nextLang, persistLang } from './lib/i18n.js';
 import { initMotion, revealAll } from './lib/motion.js';
 import { renderFooter, renderHeader, renderPage } from './lib/render.js';
-import { initTerminal } from './lib/terminal.js';
 import { applyTheme, currentTheme, detectTheme, nextTheme } from './lib/theme.js';
 import { initVortex } from './lib/vortex.js';
 
@@ -46,7 +45,6 @@ applyTheme(detectTheme());
 renderAll();
 
 const vortex = initVortex(document.getElementById('vortex'));
-initTerminal();
 initMotion();
 
 header.addEventListener('click', (event) => {

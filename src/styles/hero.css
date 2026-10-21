@@ -1,4 +1,4 @@
-/* Accueil : statut, photo, nom, accroche et terminal animé. */
+/* Accueil : statut, photo, nom, accroche et domaines d’expertise. */
 
 /* ---------- Hero ---------- */
 
@@ -212,105 +212,105 @@
     0 8px 28px rgb(0 229 255 / 0.35);
 }
 
-/* ---------- Terminal ---------- */
+/* ---------- Domaines d'expertise ---------- */
 
-/* Le terminal reste sombre quel que soit le thème. */
-.terminal {
-  --text: #e6f1f7;
-  --muted: #9cb2c6;
-  --accent: #00e5ff;
-  --success: #34d399;
-  --card-border: rgb(0 229 255 / 0.16);
-  --terminal-bg: rgb(3 8 18 / 0.88);
-
+.focus {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
   width: 100%;
-  max-width: 620px;
-  margin-top: 40px;
-  overflow: hidden;
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  background: var(--terminal-bg);
-  box-shadow:
-    var(--shadow),
-    0 0 40px rgb(0 229 255 / 0.08);
-  text-align: left;
+  max-width: 880px;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.terminal__bar {
+.focus__item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 7px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--card-border);
-  background: rgb(255 255 255 / 0.03);
+  gap: 6px;
+  padding: 18px 12px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  /* Carte posée sur la couleur de page : le tourbillon ne traverse pas le texte. */
+  background: linear-gradient(var(--card), var(--card)), var(--bg);
+  box-shadow: 0 0 24px 4px var(--bg);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.terminal__dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #ff5f57;
+.focus__item:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
 }
 
-.terminal__dot:nth-child(2) {
-  background: #febc2e;
+.focus__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  background: rgb(0 229 255 / 0.1);
+  color: var(--accent);
 }
 
-.terminal__dot:nth-child(3) {
-  background: #28c840;
-}
-
-.terminal__name {
-  margin-left: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.terminal__body {
-  padding: 16px 18px 18px;
-  font-family: var(--font-mono);
-  font-size: clamp(0.78rem, 2vw, 0.9rem);
-  line-height: 1.7;
-  color: #c9d8e6;
-}
-
-.terminal__line {
-  margin: 0;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.terminal__line--command {
+.focus__title {
+  font-weight: 700;
   color: var(--text);
 }
 
-.terminal__line--command:not(:first-child) {
-  margin-top: 10px;
+.focus__text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-wrap: balance;
 }
 
-.terminal__prompt {
-  color: var(--success);
-  font-weight: 700;
+/* Un outil ne se coupe pas ; le séparateur reste collé à l’outil qui le précède. */
+.focus__tool {
+  white-space: nowrap;
 }
 
-.terminal__cursor {
-  display: inline-block;
-  width: 0.6em;
-  height: 1.1em;
-  margin-left: 2px;
-  vertical-align: text-bottom;
-  background: var(--accent);
-  animation: blink 1s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
+@media (max-width: 860px) {
+  .focus {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Pendant la frappe, les lignes pas encore « tapées » sont invisibles mais gardent leur place. */
-.terminal.is-typing .terminal__line:not(.is-shown) {
-  visibility: hidden;
+@media (max-width: 540px) {
+  .focus {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 36px;
+  }
+
+  .focus__item {
+    padding: 14px 10px 12px;
+  }
+
+  .focus__icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Cinquième tuile seule sur sa ligne : centrée, de la même largeur que les autres. */
+  .focus__item:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus__item {
+    transition: none;
+  }
+
+  .focus__item:hover {
+    transform: none;
+  }
 }

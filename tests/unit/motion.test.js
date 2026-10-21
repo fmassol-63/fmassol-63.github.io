@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { countAt, easeOutCubic, scrollProgress } from '../../src/lib/motion.js';
-import { buildSteps } from '../../src/lib/terminal.js';
 
 describe('easeOutCubic', () => {
   it('va de 0 à 1 et reste borné', () => {
@@ -41,17 +40,5 @@ describe('scrollProgress', () => {
     const values = [900, 800, 700, 600].map((top) => scrollProgress(top, 1000));
     expect([...values].sort((a, b) => a - b)).toEqual(values);
     expect(values.every((v) => v > 0 && v < 1)).toBe(true);
-  });
-});
-
-describe('buildSteps (terminal)', () => {
-  const steps = buildSteps([{ command: 'ls' }, {}, {}]);
-
-  it('tape la commande caractère par caractère', () => {
-    expect(steps.filter((s) => s.index === 0).map((s) => s.text)).toEqual(['', 'l', 'ls']);
-  });
-
-  it('affiche ensuite chaque ligne de sortie', () => {
-    expect(steps.slice(-2).map((s) => s.index)).toEqual([1, 2]);
   });
 });

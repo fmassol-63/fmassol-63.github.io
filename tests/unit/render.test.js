@@ -16,7 +16,7 @@ import {
   renderProject,
   renderStats,
   renderStrengths,
-  renderTerminal,
+  renderFocus,
   renderSkills,
 } from '../../src/lib/render.js';
 
@@ -37,7 +37,7 @@ describe('escapeHtml', () => {
 });
 
 describe('renderHero', () => {
-  const html = renderHero(cv.identity, cv.terminal, ui);
+  const html = renderHero(cv.identity, cv.focus, ui);
 
   it('affiche la photo, le nom et le titre', () => {
     expect(html).toContain('src="/photo.webp"');
@@ -56,34 +56,33 @@ describe('renderHero', () => {
     expect(html).toContain('Lettre de recommandation');
   });
 
-  it('affiche le statut, l’accroche et le terminal', () => {
+  it('affiche le statut, l’accroche et les domaines d’expertise', () => {
     expect(html).toContain('class="hero__status"');
     expect(html).toContain('class="hero__tagline"');
-    expect(html).toContain('data-terminal');
+    expect(html).toContain('class="focus"');
   });
 
-  it('fonctionne sans statut, accroche ni terminal', () => {
+  it('fonctionne sans statut, accroche ni domaines', () => {
     const identity = { ...cv.identity, status: undefined, tagline: undefined };
     const bare = renderHero(identity, undefined, ui);
     expect(bare).not.toContain('hero__status');
-    expect(bare).not.toContain('data-terminal');
+    expect(bare).not.toContain('class="focus"');
     expect(bare).not.toContain('undefined');
   });
 });
 
-describe('renderTerminal', () => {
-  it('affiche chaque commande précédée d’une invite, puis ses sorties', () => {
-    const html = renderTerminal([{ command: 'whoami', output: ['root'] }], ui);
-    expect(html).toMatch(/terminal__prompt[^>]*>\$ <\/span><span class="terminal__cmd">whoami</);
-    expect(html).toContain('<p class="terminal__line">root<span class="terminal__cursor"');
+describe('renderFocus', () => {
+  const html = renderFocus(cv.focus, ui);
+
+  it('affiche une tuile par domaine avec son icône, son titre et ses outils', () => {
+    expect(html.match(/class="focus__item"/g)).toHaveLength(cv.focus.length);
+    expect(html).toContain('<svg');
+    expect(html).toContain('Virtualisation');
+    expect(html).toContain('<span class="focus__tool">Cluster HCI</span>');
   });
 
-  it('place le curseur dans la dernière ligne (pas de ligne vide en plus)', () => {
-    const html = renderTerminal(cv.terminal, ui);
-    expect(html.match(/terminal__cursor/g)).toHaveLength(1);
-    expect(html).toMatch(
-      /<span class="terminal__cursor" aria-hidden="true"><\/span><\/p>\s*<\/div>/,
-    );
+  it('nomme la liste pour les lecteurs d’écran', () => {
+    expect(html).toContain('aria-label="Domaines d’expertise"');
   });
 });
 

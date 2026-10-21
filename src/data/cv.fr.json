@@ -9,22 +9,31 @@
     "status": "Reconversion terminée — disponible immédiatement",
     "tagline": "11 ans à installer, maintenir et sécuriser des systèmes d’information, de l’Armée de Terre à l’entreprise."
   },
-  "terminal": [
+  "focus": [
     {
-      "command": "whoami",
-      "output": ["florian.massol — Administrateur Systèmes et Réseaux"]
+      "icon": "layers",
+      "title": "Virtualisation",
+      "tools": ["Hyper-V", "Cluster HCI", "Proxmox"]
     },
     {
-      "command": "systemctl status florian",
-      "output": [
-        "● florian.service — Administrateur Systèmes et Réseaux",
-        "   Active: active (running) depuis 2015",
-        "   Parcours: Armée de Terre (10 ans) → 3D - Agence Informatique Tribout"
-      ]
+      "icon": "server",
+      "title": "Systèmes",
+      "tools": ["Windows Server", "Linux"]
     },
     {
-      "command": "ls ~/competences",
-      "output": ["virtualisation/  systemes/  reseaux/  sauvegarde/  siem/  pentest/"]
+      "icon": "network",
+      "title": "Réseaux",
+      "tools": ["Pare-feu", "VLAN", "VPN"]
+    },
+    {
+      "icon": "backup",
+      "title": "Sauvegarde",
+      "tools": ["Veeam", "PRA / PCA"]
+    },
+    {
+      "icon": "lock",
+      "title": "Sécurité",
+      "tools": ["SIEM", "Pentest"]
     }
   ],
   "stats": [

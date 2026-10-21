@@ -9,22 +9,31 @@
     "status": "Career transition complete — available immediately",
     "tagline": "11 years installing, maintaining and securing information systems, from the French Army to the private sector."
   },
-  "terminal": [
+  "focus": [
     {
-      "command": "whoami",
-      "output": ["florian.massol — Systems and Network Administrator"]
+      "icon": "layers",
+      "title": "Virtualization",
+      "tools": ["Hyper-V", "HCI cluster", "Proxmox"]
     },
     {
-      "command": "systemctl status florian",
-      "output": [
-        "● florian.service — Systems and Network Administrator",
-        "   Active: active (running) since 2015",
-        "   Path: French Army (10 years) → 3D - Agence Informatique Tribout"
-      ]
+      "icon": "server",
+      "title": "Systems",
+      "tools": ["Windows Server", "Linux"]
     },
     {
-      "command": "ls ~/skills",
-      "output": ["virtualization/  systems/  networking/  backup/  siem/  pentest/"]
+      "icon": "network",
+      "title": "Networking",
+      "tools": ["Firewalls", "VLAN", "VPN"]
+    },
+    {
+      "icon": "backup",
+      "title": "Backup",
+      "tools": ["Veeam", "DRP / BCP"]
+    },
+    {
+      "icon": "lock",
+      "title": "Security",
+      "tools": ["SIEM", "Pentesting"]
     }
   ],
   "stats": [
