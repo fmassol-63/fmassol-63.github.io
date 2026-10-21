@@ -36,33 +36,31 @@
       "tools": ["SIEM", "Pentesting"]
     }
   ],
-  "journey": [
-    {
-      "year": "2015",
-      "label": "French Army"
-    },
-    {
-      "year": "2018",
-      "label": "GAO mission"
-    },
-    {
-      "year": "2022",
-      "label": "BM1 System Administrator"
-    },
-    {
-      "year": "2023",
-      "label": "Estonia mission"
-    },
-    {
-      "year": "2025",
-      "label": "Work-study and Bachelor"
-    },
-    {
-      "year": "2026",
-      "label": "Available",
-      "current": true
-    }
-  ],
+  "seeking": {
+    "roles": [
+      "Systems and Network Administrator",
+      "Infrastructure Technician",
+      "Support Technician"
+    ],
+    "criteria": [
+      {
+        "label": "Contract",
+        "value": "Permanent, or fixed-term leading to permanent"
+      },
+      {
+        "label": "Area",
+        "value": "Clermont-Ferrand and within 40 km"
+      },
+      {
+        "label": "Work mode",
+        "value": "On-site, hybrid or remote"
+      },
+      {
+        "label": "On-call duty",
+        "value": "Yes"
+      }
+    ]
+  },
   "stats": [
     {
       "value": 11,

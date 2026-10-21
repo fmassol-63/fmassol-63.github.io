@@ -99,21 +99,24 @@ export function renderHero(identity, focus, ui) {
     </section>`;
 }
 
-export function renderJourney(journey, ui) {
-  if (!journey?.length) return '';
-  const steps = list(
-    journey,
-    (step) => `
-      <li class="journey__step${step.current ? ' journey__step--current' : ''}">
-        <span class="journey__year">${e(step.year)}</span>
-        <span class="journey__dot" aria-hidden="true"></span>
-        <span class="journey__label">${e(step.label)}</span>
-      </li>`,
+export function renderSeeking(seeking, ui) {
+  if (!seeking) return '';
+  const roles = list(seeking.roles, (role) => `<li class="seeking__role">${e(role)}</li>`);
+  const criteria = list(
+    seeking.criteria,
+    (item) => `
+      <div class="seeking__row">
+        <dt>${e(item.label)}</dt>
+        <dd>${e(item.value)}</dd>
+      </div>`,
   );
-  return `
-    <section class="journey" aria-label="${e(ui.journeyLabel)}">
-      <ol class="journey__list">${steps}</ol>
-    </section>`;
+  return section(
+    'recherche',
+    ui.sections.seeking,
+    `<ul class="seeking__roles" aria-label="${e(ui.seekingRoles)}">${roles}</ul>
+     <dl class="seeking__criteria">${criteria}</dl>`,
+    { modifier: 'seeking', iconName: 'flag' },
+  );
 }
 
 export function renderStats(stats, ui) {
@@ -361,7 +364,7 @@ export function renderFooter(identity, ui, year = new Date().getFullYear()) {
 export function renderPage(cv, ui) {
   return [
     renderHero(cv.identity, cv.focus, ui),
-    renderJourney(cv.journey, ui),
+    renderSeeking(cv.seeking, ui),
     renderStats(cv.stats, ui),
     renderProfile(cv.profile, ui),
     renderStrengths(cv.strengths, ui),

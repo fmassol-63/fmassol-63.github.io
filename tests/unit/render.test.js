@@ -17,7 +17,7 @@ import {
   renderStats,
   renderStrengths,
   renderFocus,
-  renderJourney,
+  renderSeeking,
   renderSkills,
 } from '../../src/lib/render.js';
 
@@ -87,22 +87,19 @@ describe('renderFocus', () => {
   });
 });
 
-describe('renderJourney', () => {
-  const html = renderJourney(cv.journey, ui);
+describe('renderSeeking', () => {
+  const html = renderSeeking(cv.seeking, ui);
 
-  it('affiche chaque étape dans l’ordre, avec son année', () => {
-    expect(html.match(/class="journey__step/g)).toHaveLength(cv.journey.length);
-    expect(html.indexOf('2015')).toBeLessThan(html.indexOf('2026'));
-    expect(html).toContain('<ol class="journey__list">');
+  it('affiche les postes visés et chaque critère', () => {
+    expect(html).toContain('Ce que je recherche');
+    expect(html.match(/class="seeking__role"/g)).toHaveLength(cv.seeking.roles.length);
+    expect(html.match(/class="seeking__row"/g)).toHaveLength(cv.seeking.criteria.length);
+    expect(html).toContain('<dt>Zone</dt>');
+    expect(html).toContain('<dd>Clermont-Ferrand et 40 km autour</dd>');
   });
 
-  it('met en avant l’étape en cours', () => {
-    expect(html.match(/journey__step--current/g)).toHaveLength(1);
-    expect(html).toContain('aria-label="Parcours en bref"');
-  });
-
-  it('ne rend rien sans étapes', () => {
-    expect(renderJourney(undefined, ui)).toBe('');
+  it('ne rend rien sans données', () => {
+    expect(renderSeeking(undefined, ui)).toBe('');
   });
 });
 
@@ -266,6 +263,7 @@ describe('renderPage', () => {
     const ids = [...html.matchAll(/<section[^>]*id="([^"]+)"/g)].map((m) => m[1]);
     expect(ids).toEqual([
       'accueil',
+      'recherche',
       'chiffres',
       'profil',
       'atouts',

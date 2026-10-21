@@ -4,6 +4,7 @@
     "metaDescription": "CV de Florian MASSOL, administrateur systèmes et réseaux : 11 ans d'expérience, virtualisation, sauvegarde, réseaux, sécurité. Disponible immédiatement.",
     "sections": {
       "profile": "Profil",
+      "seeking": "Ce que je recherche",
       "strengths": "Ce que j’apporte",
       "skills": "Compétences",
       "experience": "Parcours professionnel",
@@ -31,7 +32,7 @@
     "otherLangShort": "EN",
     "skipLink": "Aller au contenu",
     "statsLabel": "Chiffres clés",
-    "journeyLabel": "Parcours en bref",
+    "seekingRoles": "Postes visés",
     "focusLabel": "Domaines d’expertise",
     "downloadCv": "Télécharger le CV",
     "downloadRecommendation": "Lettre de recommandation",
@@ -48,6 +49,7 @@
     "metaDescription": "Résumé of Florian MASSOL, systems and network administrator: 11 years of experience in virtualization, backup, networking and security. Available immediately.",
     "sections": {
       "profile": "Profile",
+      "seeking": "What I’m looking for",
       "strengths": "What I bring",
       "skills": "Skills",
       "experience": "Professional experience",
@@ -75,7 +77,7 @@
     "otherLangShort": "FR",
     "skipLink": "Skip to content",
     "statsLabel": "Key figures",
-    "journeyLabel": "Career at a glance",
+    "seekingRoles": "Target roles",
     "focusLabel": "Areas of expertise",
     "downloadCv": "Download CV (French)",
     "downloadRecommendation": "Recommendation letter (French)",

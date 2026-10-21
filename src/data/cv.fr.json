@@ -36,33 +36,31 @@
       "tools": ["SIEM", "Pentest"]
     }
   ],
-  "journey": [
-    {
-      "year": "2015",
-      "label": "Armée de Terre"
-    },
-    {
-      "year": "2018",
-      "label": "Mission GAO"
-    },
-    {
-      "year": "2022",
-      "label": "BM1 Administrateur Système"
-    },
-    {
-      "year": "2023",
-      "label": "Mission Estonie"
-    },
-    {
-      "year": "2025",
-      "label": "Alternance et Bachelor"
-    },
-    {
-      "year": "2026",
-      "label": "Disponible",
-      "current": true
-    }
-  ],
+  "seeking": {
+    "roles": [
+      "Administrateur Systèmes et Réseaux",
+      "Technicien d’infrastructure",
+      "Technicien support"
+    ],
+    "criteria": [
+      {
+        "label": "Contrat",
+        "value": "CDI, ou CDD menant à un CDI"
+      },
+      {
+        "label": "Zone",
+        "value": "Clermont-Ferrand et 40 km autour"
+      },
+      {
+        "label": "Rythme",
+        "value": "Sur site, hybride ou télétravail"
+      },
+      {
+        "label": "Astreintes",
+        "value": "Oui"
+      }
+    ]
+  },
   "stats": [
     {
       "value": 11,
