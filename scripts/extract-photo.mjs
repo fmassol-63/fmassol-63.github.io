@@ -1,11 +1,12 @@
 // Extrait la photo de profil du CV (flux JPEG /DCTDecode + masque de transparence /SMask)
 // et l'enregistre en WebP détouré. Opération ponctuelle, non appelée au build.
-// Usage : node scripts/extract-photo.mjs [CV_admin.pdf] [public/photo.webp]
+// Usage : node scripts/extract-photo.mjs [public/cv-florian-massol.pdf] [public/photo.webp]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { inflateSync } from 'node:zlib';
 import { chromium } from '@playwright/test';
 
-const [pdfPath = 'CV_admin.pdf', outPath = 'public/photo.webp'] = process.argv.slice(2);
+const [pdfPath = 'public/cv-florian-massol.pdf', outPath = 'public/photo.webp'] =
+  process.argv.slice(2);
 const pdf = readFileSync(pdfPath);
 const text = pdf.toString('latin1');
 

@@ -4,11 +4,11 @@
 
 1. Site **100 % statique** (aucun backend, aucune base de données). **Hébergé sur GitHub Pages** : https://fmassol-63.github.io/ (dépôt `fmassol-63.github.io`), déployé par GitHub Actions à chaque push sur `main` (lint, tests unitaires, build).
 2. Navigateurs modernes uniquement (Chrome, Firefox, Safari, Edge — 2 dernières versions). Pas d'IE.
-3. **Source du contenu : `CV_admin.pdf`** (2 pages). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
+3. **Source du contenu : `public/cv-florian-massol.pdf`** (CV « Technicien Supérieur », remplace `CV_admin.pdf` depuis le 2026-10-22). Tout ce qui figure sur le CV est affiché, transcrit fidèlement dans `cv.fr.json`.
 4. Le contact se fait par liens (tel, mailto, LinkedIn, GitHub) — pas de formulaire.
 5. Il n'existe **pas de CV anglais** : la version EN du site est une traduction rédigée à partir du FR. Le bouton PDF propose le CV français dans les deux langues.
 6. La **photo de profil** est extraite du PDF (opération ponctuelle, pas de dépendance ajoutée au projet) et enregistrée dans `public/photo.webp`.
-7. `CV_admin.pdf` est copié dans `public/cv-florian-massol.pdf` pour le téléchargement.
+7. Le CV source est directement le fichier téléchargeable `public/cv-florian-massol.pdf` (pas de copie à la racine).
 
 ## Objectif
 
@@ -30,7 +30,7 @@ Au centre de l'écran, un **tourbillon façon HUD de supervision** reste fixe et
 
 ### Sections de la page (dans l'ordre)
 
-Le contenu provient intégralement de `CV_admin.pdf`.
+Le contenu provient intégralement de `public/cv-florian-massol.pdf`.
 
 1. **Hero** — photo (ronde), « Florian MASSOL », titre « Administrateur Systèmes et Réseaux », boutons « Télécharger le CV » et « Me contacter ».
 2. **Profil** — le texte de profil (militaire en fin de reconversion…), puis infos clés : né le 02/12/1994, permis B et C – véhicule personnel, langues : anglais B1.
@@ -102,9 +102,8 @@ Format :       npm run format         # prettier --write .
 
 ```
 index.html               → Page unique, sections vides remplies par le JS
-CV_admin.pdf             → CV source (ne pas modifier)
 public/
-  cv-florian-massol.pdf  → Copie du CV, téléchargeable
+  cv-florian-massol.pdf  → CV source, téléchargeable (ne pas modifier sans accord)
   photo.webp             → Photo extraite du CV (détourée, WebP)
   favicon.svg
 src/
@@ -258,14 +257,14 @@ export function lerp(current, target, factor = 0.1) {
   - Choisir / configurer l'hébergement et le nom de domaine.
   - Données personnelles (décision du 2026-10-04, mise en ligne publique) : téléphone, e-mail, LinkedIn et GitHub affichés ; **adresse postale et date de naissance retirées du site** (elles restent dans le PDF téléchargeable). Toute réintroduction se demande d’abord.
 - **Jamais :**
-  - Modifier ou supprimer `CV_admin.pdf`.
+  - Modifier ou supprimer `public/cv-florian-massol.pdf` sans accord.
   - Ajouter du tracking / analytics / cookies tiers.
   - Charger des scripts depuis un CDN externe non validé.
   - Inventer des expériences, diplômes ou compétences absents du CV.
 
 ## Critères de réussite
 
-- [x] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (rien d'oublié, rien d'inventé), en FR et en EN.
+- [x] Les 10 sections s'affichent avec **tout** le contenu de `CV_admin.pdf` (vérifié avant son remplacement le 2026-10-22 ; rien d'oublié, rien d'inventé), en FR et en EN.
 - [x] La photo extraite du CV s'affiche dans le hero.
 - [x] Le tourbillon est centré, fixe, cyan, **immobile sans scroll**, et tourne de façon fluide quand on défile (dans les deux sens).
 - [x] Avec « réduire les animations » activé, le tourbillon est immobile.
@@ -279,4 +278,4 @@ export function lerp(current, target, factor = 0.1) {
 
 ## Décisions prises
 
-- CV source : `CV_admin.pdf` · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
+- CV source : `CV_admin.pdf`, remplacé le 2026-10-22 par le CV « Technicien Supérieur » (`public/cv-florian-massol.pdf`) · tout le contenu du CV est affiché · tourbillon immobile sans scroll · cyan « tech » · localhost pour l'instant · photo reprise du CV.
