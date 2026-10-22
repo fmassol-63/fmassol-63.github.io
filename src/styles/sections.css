@@ -131,6 +131,10 @@
   list-style: none;
 }
 
+.strengths--soft {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+}
+
 .strength {
   padding: 22px;
   border: 1px solid var(--card-border);

@@ -268,6 +268,7 @@ describe('renderPage', () => {
       'profil',
       'atouts',
       'competences',
+      'soft-skills',
       'parcours',
       'missions',
       'projet',

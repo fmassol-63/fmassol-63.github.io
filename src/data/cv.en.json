@@ -213,6 +213,48 @@
       "items": ["Iperius", "Quick Assist", "AnyDesk"]
     }
   ],
+  "softSkills": [
+    {
+      "icon": "users",
+      "title": "Leadership and team management",
+      "text": "Group leader for 9 years, I led 3 teams, both in combat units and on the IT side as helpdesk lead."
+    },
+    {
+      "icon": "book",
+      "title": "Teaching and knowledge sharing",
+      "text": "Regular trainer on IT systems and the military environment, to keep the basics sharp and raise cybersecurity awareness."
+    },
+    {
+      "icon": "zap",
+      "title": "Responsiveness and crisis management",
+      "text": "Quick response to incidents on critical infrastructure to keep operations running: a full C: drive on a mail server taking down the transport service, or a DFS sync that replicated an empty folder instead of the data during a migration (restore from backup and notice to the affected users only, to respect the chain of command)."
+    },
+    {
+      "icon": "clipboard",
+      "title": "Rigour and discipline",
+      "text": "Punctuality, complex decision-making, documentation and written procedures, keeping up with IT news and trends."
+    },
+    {
+      "icon": "compass",
+      "title": "Autonomy and curiosity",
+      "text": "Since leaving the army I keep learning: a professional title earned, self-study with GitHub and a study project on hyperconverged infrastructure."
+    },
+    {
+      "icon": "globe",
+      "title": "Adaptability",
+      "text": "I have worked in very different conditions: overseas missions, exercises in all weather, working with engineers as a tester, a career change through a work-study programme. I adapt to new environments."
+    },
+    {
+      "icon": "message",
+      "title": "Team spirit and communication",
+      "text": "Having worked in teams on many projects and on very hard-to-solve incidents, I value teamwork and express myself clearly."
+    },
+    {
+      "icon": "headset",
+      "title": "Service mindset and user focus",
+      "text": "I listen to feedback from users and administrators, improve resolution and maintenance processes, and give users a clear, understandable analysis."
+    }
+  ],
   "experience": [
     {
       "company": "3D - Agence Informatique Tribout",

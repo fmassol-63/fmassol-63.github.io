@@ -15,7 +15,7 @@ describe('icon', () => {
   });
 
   it('connaît toutes les icônes référencées dans le CV', () => {
-    const used = [...cv.skills, ...cv.strengths].map((item) => item.icon);
+    const used = [...cv.skills, ...cv.strengths, ...cv.softSkills].map((item) => item.icon);
     expect(used.filter((name) => !ICON_NAMES.includes(name))).toEqual([]);
   });
 });

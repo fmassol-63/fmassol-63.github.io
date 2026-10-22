@@ -5,6 +5,7 @@ test.use({ locale: 'fr-FR' });
 const sections = [
   'profil',
   'competences',
+  'soft-skills',
   'parcours',
   'missions',
   'formation',

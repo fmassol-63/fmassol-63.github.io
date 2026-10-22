@@ -213,6 +213,48 @@
       "items": ["Iperius", "Assistance Rapide", "AnyDesk"]
     }
   ],
+  "softSkills": [
+    {
+      "icon": "users",
+      "title": "Leadership et encadrement d’équipe",
+      "text": "Chef de groupe pendant 9 ans, j’ai dirigé 3 équipes, que ce soit au combat ou côté SIO en tant que chef du helpdesk."
+    },
+    {
+      "icon": "book",
+      "title": "Pédagogie et transmission",
+      "text": "Formateur périodique sur les systèmes informatiques et l’environnement militaire, pour entretenir les bases et sensibiliser à la cybersécurité."
+    },
+    {
+      "icon": "zap",
+      "title": "Réactivité et gestion de crise",
+      "text": "Réaction rapide aux incidents sur des infrastructures critiques pour assurer la continuité des opérations : disque C: saturé sur un serveur de messagerie avec perte du service de transport, ou synchronisation DFS ayant répliqué un dossier vide à la place des données pendant une migration (reprise depuis la sauvegarde et information des seuls utilisateurs concernés, pour préserver la chaîne hiérarchique)."
+    },
+    {
+      "icon": "clipboard",
+      "title": "Rigueur et discipline",
+      "text": "Ponctualité, prise de décisions complexes, documentation et mise en place de procédures, veille sur l’actualité et les tendances de l’informatique."
+    },
+    {
+      "icon": "compass",
+      "title": "Autonomie et curiosité",
+      "text": "Après l’armée, je continue à me former : titre professionnel obtenu, apprentissage personnel avec GitHub et projet d’études sur une infrastructure hyperconvergée."
+    },
+    {
+      "icon": "globe",
+      "title": "Adaptabilité",
+      "text": "J’ai évolué dans des conditions très variées : missions à l’étranger, exercices par tous les temps, échanges avec des ingénieurs en tant que testeur, reconversion en alternance en entreprise. Je m’adapte à des environnements différents."
+    },
+    {
+      "icon": "message",
+      "title": "Esprit d’équipe et communication",
+      "text": "Ayant travaillé en équipe sur différents projets et sur des incidents très complexes à résoudre, je mesure la valeur du travail collectif et sais m’exprimer clairement."
+    },
+    {
+      "icon": "headset",
+      "title": "Sens du service et écoute des utilisateurs",
+      "text": "À l’écoute des retours d’expérience des utilisateurs et des administrateurs, j’améliore les processus de résolution et de maintenance tout en donnant aux utilisateurs une analyse claire et compréhensible."
+    }
+  ],
   "experience": [
     {
       "company": "3D - Agence Informatique Tribout",

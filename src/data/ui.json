@@ -7,6 +7,7 @@
       "seeking": "Ce que je recherche",
       "strengths": "Ce que j’apporte",
       "skills": "Compétences",
+      "softSkills": "Soft skills",
       "experience": "Parcours professionnel",
       "missions": "Missions",
       "project": "Projet d’études",
@@ -18,6 +19,7 @@
     "nav": {
       "profil": "Profil",
       "competences": "Compétences",
+      "soft-skills": "Soft skills",
       "parcours": "Parcours",
       "missions": "Missions",
       "formation": "Formation",
@@ -52,6 +54,7 @@
       "seeking": "What I’m looking for",
       "strengths": "What I bring",
       "skills": "Skills",
+      "softSkills": "Soft skills",
       "experience": "Professional experience",
       "missions": "Missions",
       "project": "Study project",
@@ -63,6 +66,7 @@
     "nav": {
       "profil": "Profile",
       "competences": "Skills",
+      "soft-skills": "Soft skills",
       "parcours": "Experience",
       "missions": "Missions",
       "formation": "Education",

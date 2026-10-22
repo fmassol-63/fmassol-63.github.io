@@ -91,9 +91,22 @@
 }
 
 /* Juste au-dessus du menu mobile, liens resserrés pour que la navigation tienne sur une ligne. */
-@media (min-width: 900px) and (max-width: 999px) {
+@media (min-width: 950px) and (max-width: 1149px) {
   .header__link {
     padding-inline: 8px;
+  }
+}
+
+/* Sous 1150px, seul le logo « FM » reste : le nom laisse la place aux liens. */
+@media (max-width: 1149px) {
+  /* Masqué à l'écran mais lu par les lecteurs d'écran : le lien garde un nom. */
+  .header__brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
@@ -137,17 +150,7 @@
   display: none;
 }
 
-@media (max-width: 899px) {
-  /* Masqué à l'écran mais lu par les lecteurs d'écran : le lien garde un nom. */
-  .header__brand-name {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
+@media (max-width: 949px) {
   .header__actions {
     margin-left: auto;
   }

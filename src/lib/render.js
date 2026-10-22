@@ -181,6 +181,25 @@ export function renderSkills(skills, ui) {
   });
 }
 
+export function renderSoftSkills(softSkills, ui) {
+  if (!softSkills?.length) return '';
+  const items = list(
+    softSkills,
+    (item) => `
+      <li class="strength">
+        <span class="strength__icon">${icon(item.icon, 26)}</span>
+        <h3 class="strength__title">${e(item.title)}</h3>
+        <p class="strength__text">${e(item.text)}</p>
+      </li>`,
+  );
+  return section(
+    'soft-skills',
+    ui.sections.softSkills,
+    `<ul class="strengths strengths--soft">${items}</ul>`,
+    { modifier: 'section--wide', iconName: 'message' },
+  );
+}
+
 function timelineMeta(parts) {
   return parts
     .filter(Boolean)
@@ -369,6 +388,7 @@ export function renderPage(cv, ui) {
     renderProfile(cv.profile, ui),
     renderStrengths(cv.strengths, ui),
     renderSkills(cv.skills, ui),
+    renderSoftSkills(cv.softSkills, ui),
     renderExperience(cv.experience, ui),
     renderMissions(cv.missions, ui),
     renderProject(cv.project, ui),

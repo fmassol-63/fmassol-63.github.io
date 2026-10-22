@@ -35,6 +35,7 @@ Le contenu provient intégralement de `public/cv-florian-massol.pdf`.
 1. **Hero** — photo (ronde), « Florian MASSOL », titre « Administrateur Systèmes et Réseaux », boutons « Télécharger le CV » et « Me contacter ».
 2. **Profil** — le texte de profil (militaire en fin de reconversion…), puis infos clés : né le 02/12/1994, permis B et C – véhicule personnel, langues : anglais B1.
 3. **Compétences** — 13 catégories, chacune avec ses outils affichés en « badges » : Virtualisation, Systèmes, NAS, Sauvegarde, Antivirus, Services, Réseaux, Supervision, SIEM, Pentest, Autre, Scripting, Prise en main à distance.
+   3 bis. **Soft skills** (ajoutées le 2026-10-22, textes fournis par Florian) — 8 cartes icône + titre + texte : Leadership et encadrement d’équipe, Pédagogie et transmission, Réactivité et gestion de crise, Rigueur et discipline, Autonomie et curiosité, Adaptabilité, Esprit d’équipe et communication, Sens du service et écoute des utilisateurs. Lien « Soft skills » dans le menu, entre Compétences et Parcours.
 4. **Parcours professionnel** — frise chronologique :
    - 3D - Agence Informatique Tribout — Alternant Administrateur Système, Réseau, Cyber (2025–2026, Clermont-Ferrand, 1 an)
    - Armée de Terre — Administrateur Système (2015–2025, Clermont-Ferrand, 9 ans)
