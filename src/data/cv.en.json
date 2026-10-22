@@ -227,7 +227,7 @@
     {
       "icon": "zap",
       "title": "Responsiveness and crisis management",
-      "text": "Quick response to incidents on critical infrastructure to keep operations running: a full C: drive on a mail server taking down the transport service, or a DFS sync that replicated an empty folder instead of the data during a migration (restore from backup and notice to the affected users only, to respect the chain of command)."
+      "text": "Quick response to incidents on critical infrastructure to keep operations running, for example: a full C: drive on a mail server taking down the transport service, or a DFS sync that replicated an empty folder instead of the data during a migration (restore from backup and notice to the affected users only, to respect the chain of command)."
     },
     {
       "icon": "clipboard",

@@ -227,7 +227,7 @@
     {
       "icon": "zap",
       "title": "Réactivité et gestion de crise",
-      "text": "Réaction rapide aux incidents sur des infrastructures critiques pour assurer la continuité des opérations : disque C: saturé sur un serveur de messagerie avec perte du service de transport, ou synchronisation DFS ayant répliqué un dossier vide à la place des données pendant une migration (reprise depuis la sauvegarde et information des seuls utilisateurs concernés, pour préserver la chaîne hiérarchique)."
+      "text": "Réaction rapide aux incidents sur des infrastructures critiques pour assurer la continuité des opérations, par exemple : disque C: saturé sur un serveur de messagerie avec perte du service de transport, ou synchronisation DFS ayant répliqué un dossier vide à la place des données pendant une migration (reprise depuis la sauvegarde et information des seuls utilisateurs concernés, pour préserver la chaîne hiérarchique)."
     },
     {
       "icon": "clipboard",
