@@ -41,7 +41,7 @@ Le contenu provient intégralement de `public/cv-florian-massol.pdf`.
    - Armée de Terre — Administrateur Système (2015–2025, Clermont-Ferrand, 9 ans)
 5. **Missions** — cartes : Mission Estonie (2023, 4 mois) ; Mission GAO (2018, 4 mois), avec les tâches et les chiffres clés mis en avant (500 postes, 1000 interventions).
 6. **Projet** — « Déploiement d'une infrastructure hyperconvergée » : contexte (site unique, pas de redondance) + les 8 recommandations.
-7. **Formations** — frise : Bachelor ASRC (2025–2026, GFS), Logiciels métier & environnement militaire (2023–2024), BM1 Administrateur Système (2022, ETNC Rennes), Formation SIO (2015, Armée de Terre), BAC PRO Électrotechnicien (2013).
+7. **Formations** — frise : Titre professionnel niveau 6 technicien d’infrastructure sécurisé (2025–2026, GFS), Logiciels métier & environnement militaire (2023–2024), BM1 Administrateur Système (2022, ETNC Rennes), Formation SIO (2015, Armée de Terre), BAC PRO Électrotechnicien (2013).
 8. **Centres d'intérêt** — Sport, Bricolage – Menuiserie, Jardinage, Jeux (console, PC, jeux de société).
 9. **Contact** — téléphone, email, LinkedIn, GitHub (profil), bouton PDF.
 10. **Pied de page** — © année, nom.
