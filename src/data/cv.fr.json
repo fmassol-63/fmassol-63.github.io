@@ -164,6 +164,8 @@
         "DHCP",
         "Exchange",
         "M365",
+        "Entra ID",
+        "Intune",
         "IIS",
         "Nginx",
         "Apache"
@@ -185,7 +187,7 @@
     {
       "icon": "activity",
       "category": "Supervision",
-      "items": ["Zabbix", "TacticalRMM"]
+      "items": ["Zabbix", "TacticalRMM", "GLPI"]
     },
     {
       "icon": "eye",
