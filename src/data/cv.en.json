@@ -164,6 +164,7 @@
         "DHCP",
         "Exchange",
         "M365",
+        "Azure",
         "Entra ID",
         "Intune",
         "IIS",
